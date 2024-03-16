@@ -1,0 +1,40 @@
+.input-back {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    position: relative;
+    top: -5%;
+}
+
+.input-top {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+}
+
+.input {
+    width: 80%;
+    height: 70px;
+    padding-left: 8%;
+    border-radius: 50px;
+    box-shadow: 1px 2px 5px 5px rgb(225, 225, 225) inset;
+    box-shadow: 1px 1px 5px 2px rgb(238, 237, 237);
+    border: none;
+    font-size: 30px;
+    color: #BBBBCC;
+    background: rgb(244, 243, 243);
+}
+
+.input-button {
+    font: 500 30px Arial;
+    width: 21vw;
+    height: 70px;
+    line-height: 70px;
+    background: rgb(244, 243, 243);
+    position: relative;
+    bottom: 35%;
+    left: 30%;
+    border-radius: 50px;
+    z-index: 2;
+}
