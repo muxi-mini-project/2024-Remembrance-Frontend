@@ -1,0 +1,30 @@
+{
+  "id": "4436187",
+  "name": "记忆",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "5121531",
+      "name": "主页",
+      "font_class": "zhuye",
+      "unicode": "e64e",
+      "unicode_decimal": 58958
+    },
+    {
+      "icon_id": "18669809",
+      "name": "outline",
+      "font_class": "outline",
+      "unicode": "e636",
+      "unicode_decimal": 58934
+    },
+    {
+      "icon_id": "19985537",
+      "name": "SystemCloseLargeLine",
+      "font_class": "SystemCloseLargeLine",
+      "unicode": "e959",
+      "unicode_decimal": 59737
+    }
+  ]
+}

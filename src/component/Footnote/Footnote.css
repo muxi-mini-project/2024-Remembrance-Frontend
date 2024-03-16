@@ -1,0 +1,35 @@
+.submit-bottom {
+    display: flex;
+    gap: 20px;
+    position: relative;
+    bottom: -4vh;
+}
+
+.checkbox {
+    width: 18px;
+    height: 18px;
+    border: 1px solid #BBBBCC;
+    border-radius: 50%;
+    position: relative;
+    top: 15%;
+}
+
+.checkbox:hover {
+    background-color: #73abe4;
+    border: transparent;
+}
+
+.submit-bottom-2 {
+    display: flex;
+}
+
+.submit-foot2 {
+    display: flex;
+    font-size: 20px;
+}
+
+.submit-foot3 {
+    font-size: 20px;
+    color: #2383E0;
+}
+

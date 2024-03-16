@@ -1,0 +1,192 @@
+.background {
+    width: 100vw;
+    height: 100vh;
+    background: url(../../assets/image/ChatFriends/background.png);
+    background-size: 100vw;
+    background-position-x: 50%;
+    /* background-position-y: 10%; */
+}
+
+.header {
+    display: flex;
+    flex-direction: column;
+    padding: 1vh;
+}
+
+.title {
+    height: 10vh;
+    background-color: #f8f8f8;
+    display: flex;
+    justify-content: space-between;
+}
+
+.none {
+    width: 30vw;
+    height: 5vh;
+}
+
+.title-logo {
+    background: url(../../assets/image/Log-in/memory.png) no-repeat;
+    background-size: 150px;
+    background-position-y: 90%;
+    width: 30vw;
+}
+
+.title-content {
+    font: 600 40px FZYaoTi;
+    position: relative;
+    top: 60%;
+}
+
+.second-title {
+    display: flex;
+    justify-content: space-between;
+    background-color: #fff;
+    height: 5vh;
+}
+
+#second-title-content {
+    font: 600 40px FZYaoTi;
+    line-height: 5vh;
+}
+
+.return {
+    width: 30vw;
+    height: 3.5vh;
+    background: url(../../assets/image/CreateMultiple/return.png) no-repeat;
+    background-size: 10vw;
+}
+
+.button {
+    font: 600 40px FZYaoTi;
+    width: 30vw;
+    height: 8vh;
+    text-align: center;
+    line-height: 8vh;
+    background-color: #fff;
+    border-radius: 25px;
+    position: relative;
+    top: 7vh;
+    left: 35vw;
+
+}
+
+.airplane1 {
+    background: url(../../assets/image/ChatFriends/airplane1.png) no-repeat;
+    width: 10vw;
+    height: 5vh;
+    background-size: 10vw;
+    position: absolute;
+    left: 10%;
+    top: 17%;
+}
+
+.airplane2 {
+    background: url(../../assets/image/ChatFriends/airplane2.png) no-repeat;
+    width: 40vw;
+    height: 20vh;
+    background-size: 38vw;
+    position: absolute;
+    bottom: 10%;
+    left: 15%;
+}
+
+.poppup {
+    width: 60vw;
+    height: 20vh;
+    background-color: #fff;
+    border-radius: 25px;
+    box-shadow: 2px 2px 4px #CDE8FA;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3vh;
+    position: absolute;
+    top: 30vh;
+    left: 20vw;
+
+}
+
+.cancle-button {
+    width: 5vw;
+    height: 3vh;
+    background-color: white;
+    line-height: 3vh;
+    text-align: center;
+    box-shadow: 1px 1px 3px rgb(235, 234, 234);
+    border-radius: 5px;
+    position: relative;
+    left: 35%;
+    top: 5%;
+}
+
+.poppup-content {
+    font: 500 35px FZYaoTi;
+    position: relative;
+    top: -3%;
+}
+
+.check-button {
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+}
+
+.check-botton-content1 {
+    width: 15vw;
+    height: 4vh;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 2px 2px 3px #daeffd inset;
+    box-shadow: 2px 2px 3px #CDE8FA;
+    line-height: 4vh;
+    text-align: center;
+
+}
+
+#default {
+    background-color: #CDE8FA;
+}
+.render-list-back {
+    display: flex;
+    flex-direction: column;
+    gap: 3vh;
+}
+.render-background {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    top: 4vh;
+    gap: 7vh;
+   
+}
+
+.renderlist {
+    width: 80vw;
+    height: 12vh;
+    background-color: #fff;
+    border-radius: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.username {
+    font: 600 40px FZYaoTi;
+    color: rgb(86, 86, 86);
+    line-height: 12vh;
+    position: relative;
+    left: 5vw;
+}
+
+.cancle {
+    background: url(../../assets/image/ChatFriends/cancle.png) no-repeat;
+    width: 8vw;
+    height: 4vh;
+    background-size: 8vw;
+    position: relative;
+    top: 28%;
+    position: relative;
+    right: 5vw;
+}

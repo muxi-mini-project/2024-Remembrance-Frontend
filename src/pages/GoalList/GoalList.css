@@ -1,0 +1,174 @@
+.header {
+    position: relative;
+    top: 2vh;
+    display: flex;
+    flex-direction: column;
+    padding: 1vh;
+}
+
+.title {
+    height: 10vh;
+    background-color: #f8f8f8;
+    display: flex;
+    justify-content: space-between;
+}
+
+.none {
+    width: 30vw;
+    height: 5vh;
+}
+
+.title-logo {
+    background: url(../../assets/image/Log-in/memory.png) no-repeat;
+    background-size: 150px;
+    background-position-y: 90%;
+    width: 30vw;
+}
+
+.title-content {
+    font: 600 40px FZYaoTi;
+    height: 40px;
+    position: absolute;
+    bottom: 40%;
+    left: 37%;
+}
+
+.second-title {
+    display: flex;
+    justify-content: space-between;
+    background-color: #fff;
+    height: 5vh;
+}
+
+#second-title-content {
+    line-height: 5vh;
+    position: absolute;
+    left: 43vw;
+    top: 11vh;
+}
+
+.return {
+    width: 10vw;
+    height: 5vh;
+    background: url(../../assets/image/GoalList/return.png) no-repeat;
+    background-size: 11vw;
+    background-position-x: 50%;
+    background-position-y: 5%;
+}
+
+.chat-friends {
+    width: 10vw;
+    height: 5vh;
+    background: url(../../assets/image/GoalList/chat-friends.png) no-repeat;
+    background-size: 11vw;
+    background-position-x: 50%;
+    background-position-y: 5%;
+}
+
+.background {
+    width: 100vw;
+    height: 89vh;
+    background: url(../../assets/image/Multiple/background.png);
+    overflow-y: auto;
+    background-size: 90vw;
+    background-position-x: 50%;
+    background-position-y: 50%;
+}
+
+.paper-airplane1 {
+    background: url(../../assets/image/GoalList/paper-airplane2.png) no-repeat;
+    width: 40vw;
+    height: 30vh;
+    background-size: 10vw;
+    position: absolute;
+    left: 60vw;
+    top: 30vh;
+}
+
+.paper-airplane2 {
+    background: url(../../assets/image/GoalList/paper-airplane.png) no-repeat;
+    width: 40vw;
+    height: 20vh;
+    background-size: 35vw;
+    position: absolute;
+    left: 15vw;
+    bottom: 5vh;
+}
+
+.chatlist-background {
+    display: flex;
+    gap: 3vh;
+    flex-direction: column;
+}
+
+.chatlist {
+    display: flex;
+    flex-direction: column;
+    gap: 1vh;
+    align-items: flex-end;
+    position: relative;
+    right: 5vw;
+    top: 2vh;
+}
+
+.username {
+    font: 30px FZYaoTi;
+    color: black;
+}
+
+.chatContent1 {
+    max-width: 80vw;
+    text-wrap: pre-wrap;
+    white-space: pre-wrap;
+    word-break: break-all;
+    width: auto;
+    height: auto;
+    background-color: #fff;
+    border-radius: 20px;
+    font: 600 30px FZYaoTi;
+    padding: 2%;
+}
+
+.chatContent2 {
+    max-width: 80vw;
+    width: auto;
+    height: auto;
+    background-color: #fff;
+    border-radius: 20px;
+    padding: 2%;
+}
+
+
+.bottom-input {
+    position: fixed;
+    bottom: -1%;
+    width: 100vw;
+    height: 8.5vh;
+    background-color: #fff;
+    border-radius: 25px;
+    box-shadow: 4px 4px 5px 5px #e4e3e3 inset;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 6vw;
+}
+
+.input-content {
+    width: 70vw;
+    height: 6vh;
+    border-radius: 10px;
+    border: 1px solid #F5F5F5;
+    background-color: #F5F5F5;
+    border-radius: 10px;
+
+}
+
+.send {
+    width: 10vw;
+    height: 6vh;
+    background: url(../../assets/image/GoalList/sendPhoto.png) no-repeat;
+    background-size: 14vw;
+    background-position-x: 50%;
+    background-position-y: 45%;
+    border-radius: 10px;
+}
