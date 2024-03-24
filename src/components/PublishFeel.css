@@ -1,0 +1,50 @@
+.yourFeel{
+    font-size: 3vh;
+    width: 80vw;
+    height: 20vh;
+    font-family: 'Times New Roman', Times, serif;
+    letter-spacing: 0.5vw;
+    word-break: break-all;
+    overflow: scroll;
+    color: rgb(40, 41, 41);
+}
+
+.photoShow{
+    display: flex;
+    flex-wrap: wrap;
+    margin: 5vw 0;
+}
+
+.photo{
+    margin: 1.5vw;
+    width: 21.5vw;
+    height: 21.5vw;
+    box-shadow: 2px 1px 5px rgba(0, 0, 0, 0.429);
+}
+
+.addphoto{
+    margin: 1.5vw;
+    width: 21.5vw;
+    height: 21.5vw;
+    box-shadow: 2px 1px 5px rgba(0, 0, 0, 0.429);
+}
+
+.diytopic{
+    border-radius: 1vh;
+    padding: 1vw 2vw;
+    box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.466);
+    font-size: 2.5vh;
+    letter-spacing: 0.5vw;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: 500;
+    color: rgba(0, 0, 0, 0.886);
+}
+
+.addphoto View{
+    font-size: 25vw;
+    font-weight: lighter;
+    position: relative;
+    color: rgba(36, 35, 35, 0.21);
+    left: 10%;
+    top: -30%;
+}

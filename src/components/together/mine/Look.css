@@ -1,0 +1,106 @@
+.lookBack{
+    position: fixed;
+    left: 50%;
+    transform: translateX(-47%);
+}
+
+.shuzhi{
+    height: 78vh;
+    width: 95vw;
+}
+
+.cloudOne{
+    position: relative;
+    left: 7%;
+    top:-29vh;
+    width: 54vw;
+    height: 11.5vw;
+    opacity: 0.85;
+}
+
+.cloudTwo{
+    position: fixed;
+    width: 35vw;
+    top:27vh;
+    left: 60%;
+    height: 13vw;
+    opacity: 0.85;
+}
+
+.leafOne{
+    width: 33vw;
+    height: 16vh;
+    background: #FFFFFF;
+    position: absolute;
+    top: 5.3vh;
+    left: 30%;
+    opacity: 0;
+}
+
+.leafTwo{
+    background: #FFFFFF;
+    width: 28vw;
+    height: 14.5vh;
+    position: absolute;
+    top: 32vh;
+    left: 10%;
+    opacity: 0;
+}
+
+.leafThree{
+    background: #FFFFFF;
+    width: 30vw;
+    height: 15vh;
+    position: absolute;
+    top: 58vh;
+    left: 52%;
+    opacity: 0;
+}
+
+.looknone{
+    display: none;
+}
+
+.lookMemory{
+    height: 68vh;
+    width: 80vw;
+    background: #FFFFFF;
+    position: relative;
+    left: 5%;
+    top: 2vh;
+    border-radius: 1vh;
+    padding: 5vw;
+}
+
+.lookname{
+    font-size: 3vh;
+    font-family: 'Times New Roman', Times, serif;
+    letter-spacing: 1vh;
+    font-weight: 800;
+    color: rgba(0, 0, 0, 0.651);
+}
+
+.lookContent{
+    margin: 1vh 0;
+    width: 80vw;
+    height: 10vh;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.619);
+    word-wrap: break-word;
+    overflow-y: scroll;
+}
+
+.lookPhoto{
+    margin: 2vh 0;
+    width: 80vw;
+    height: 45vh;
+    border: 1px solid rgba(0, 0, 0, 0.477);
+    object-fit: cover;
+}
+
+.lookDate{
+    font-size: 3vh;
+    float: right;
+    letter-spacing: 0.5vw;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    color: rgba(70, 69, 69, 0.5);
+}

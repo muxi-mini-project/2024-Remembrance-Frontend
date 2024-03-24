@@ -1,0 +1,212 @@
+.juxing61{
+    width: 100%;
+    height: 6vh;
+}
+
+.memoryNavbar{
+    width: 100%;
+    height: 6vh;
+}
+
+.background{
+    width: 100%;
+    height: 94vh;
+}
+
+.zu120{
+    width: 5.5vh;
+    height: 5.5vh;
+    position: absolute;
+    top: 0.8vh;
+    left: 2%;
+}
+
+.fabu{
+    position: absolute;
+    width: 5.5vh;
+    height: 5.5vh;
+    top: 0.7vh;
+    left: 15%;
+}
+
+.memoryNavbar Text{
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 3.5vh;
+    color: rgba(54, 54, 54, 0.7);
+    line-height: 6vh;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    letter-spacing: 0.5vh;
+    font-weight: 800;
+}
+
+.paoBackground{
+    position: absolute;
+    width: 100%;
+    height: 94vh;
+    top: 6vh;
+    z-index: -2;
+}
+
+.blueround{
+    position: absolute;
+    top: -5vh;
+    width: 60vh;
+    height: 60vh;
+    left: -50%;
+    top: -20vh;
+    z-index: -1;
+}
+
+.greenround{
+    position: absolute;
+    width: 90vh;
+    height: 90vh;
+    left: 30%;
+    z-index: -1;
+}
+
+.blueround1{
+    position: absolute;
+    z-index: -1;
+    width: 60vh;
+    height: 60vh;
+    top: 38vh;
+    left: -75%;
+}
+
+.showMemory{
+    position: absolute;
+    margin: 0 10%;
+}
+
+.myusername{
+    font-family: 'Times New Roman', Times, serif;
+    letter-spacing: 1vw;
+    font-size: 2.3vh;
+    opacity: 0.9;
+}
+
+.myuserdate{
+    position: relative;
+    opacity: 0.5;
+}
+
+.textShow{
+    width: 80vw;
+    height: 10vh;
+    position: relative;
+    background: rgba(228, 228, 228, 0.62);
+    border: 1px solid rgba(0, 0, 0, 0.313);
+    padding: 5px 10px;
+}
+
+.lujing187{
+    height: 1px;
+    position: relative;
+    left: 50%;
+    transform: translateX(-55%);
+}
+
+.photoShow{
+    width: 80vw;
+    height: 32vh;
+    position: relative;
+    background: rgba(228, 228, 228, 0.62);
+    border: 1px solid rgba(0, 0, 0, 0.313);
+    padding: 5px 10px;
+}
+
+.lujing188{
+    height: 1px;
+    width: 92vw;
+    position: relative;
+    left: -5%;
+    top: 0.5vh;
+}
+
+.comment{
+    position: relative;
+    top: 0.5vh;
+}
+
+.pinglun{
+    padding: 0.6vh 0;
+    position: relative;
+    width: 10vh;
+    text-align: center;
+    letter-spacing: 0.5vw;
+    left: 35%;
+    border-bottom: 1px solid black;
+    opacity: 0.8;
+    font-size: 3vh;
+    color: #000;
+}
+
+.commentShow{
+    border: 1px solid rgba(0, 0, 0, 0.324);
+    position: relative;
+    top: 1vh;
+    height: 20vh;
+    width: 80vw;
+    padding: 0.4vh;
+    overflow: scroll;
+}
+
+.showcomment{
+    padding: 0.1vh 0.1vh 0.1vh 0.1vh;
+    border-bottom: 1px solid rgba(44, 43, 43, 0.349);
+}
+
+.commentName{
+    font-size: 2vh;
+    letter-spacing: 0.5vw;
+    color: #2e2d2dcb;
+}
+
+.commentDate{
+    position: relative;
+    left: 75%;
+    font-size: 1.8vh;
+    color: #5b5a5a6c;
+}
+
+.content{
+    width: 80vw;
+    word-wrap: break-word;
+}
+
+.publish{
+    position: relative;
+    background: rgba(245, 245, 245, 1);
+    width: 88vw;
+    height: 5vh;
+    top: 2vh;
+    left: -3.5%;
+    border-radius: 1.5vh;
+    padding: auto 2vw;
+}
+
+.inputComment{
+    position: relative;
+    width: 60vw;
+    height: 3vh;
+    overflow: hidden;
+    left: 5%;
+    top: 0.75vh;
+}
+
+.send{
+    position: relative;
+    left: 80%;
+    top: -2.4vh;
+    height: 3.5vh;
+    text-align: center;
+    width: 15vw;
+    font-family: 'Times New Roman', Times, serif;
+    letter-spacing: 1vw;
+    font-weight: 800;
+    background: rgba(255, 255, 255, 1);
+    line-height: 3.5vh;
+}

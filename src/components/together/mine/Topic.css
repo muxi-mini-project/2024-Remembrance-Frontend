@@ -1,0 +1,38 @@
+.topic{
+    width: 100vw;
+    height: 82.5vh;
+    display: flex;
+    flex-wrap: wrap;
+    overflow: scroll;
+    word-wrap: break-word;
+}
+
+.topic view{
+    width: 50vw;
+    height: 27.5vh;
+}
+
+.topicBack{
+    text-align: center;
+}
+
+.topicBack view{
+    width: 20vh;
+    height: 20vh;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #FFFFFF;
+    box-shadow: 0rpx 5rpx 11rpx 2rpx rgba(0,0,0,0.16), inset 0rpx 5rpx 11rpx 2rpx rgba(0,0,0,0.16);
+    border-radius: 14rpx 14rpx 14rpx 14rpx;
+    opacity: 1;
+}
+
+.topic Text{
+    position: relative;
+    top: 2vh;
+    font-weight: bolder;
+    font-size: 5vw;
+    letter-spacing: 0.5vw;
+    font-family:'Times New Roman', Times, serif;
+}
