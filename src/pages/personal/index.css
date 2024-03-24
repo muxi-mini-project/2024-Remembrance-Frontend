@@ -1,0 +1,135 @@
+.pernavber{
+    height: 6vh;
+}
+
+.juxing61{
+    width: 100%;
+    height: 6vh;
+}
+
+.home{
+    height: 6vh;
+    width: 6vh;
+    position: relative;
+    top: -6.2vh;
+    left: 5%;
+}
+
+.background{
+    position: absolute;
+    width: 100%;
+    height: 94vh;
+}
+
+.username{
+    position: absolute;
+    top: 11vh;
+    left: 12%;
+}
+
+.username Input{
+    height: 8vh;
+    font-size: 5vh;
+    letter-spacing: 1vw;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: 400;
+}
+
+.change{
+    position: absolute;
+    top: 14vh;
+    left: 50%;
+    transform: translateX(-47%);
+}
+
+.shugan{
+    width: 6vh;
+    height: 60vh;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.changeName{
+    position: relative;
+    top: 9vh;
+    left: -28%;
+}
+
+.changeName Text{
+    position: relative;
+    top: -6.3vh;
+    left: 17%;
+}
+
+.juxing176{
+    height: 7vh;
+    width: 30vh;
+    opacity: 0.8;
+}
+
+.lujing193{
+    position: relative;
+    height: 7vh;
+    width: 13vh;
+    left: 38%;
+    top: -6.8vh;
+}
+
+.changePass{
+    position: relative;
+    top: 2vh;
+    left: 32%;
+}
+
+.changePass Text{
+    position: relative;
+    top: -6.3vh;
+    left: 22%;
+}
+
+.lujing194{
+    position: relative;
+    height: 8vh;
+    width: 12.5vh;
+    left: 21%;
+    top: -6vh;
+}
+
+.logout{
+    position: relative;
+    top: -2vh;
+    left: -37%;
+}
+
+.logout Text{
+    position: relative;
+    top: -6.3vh;
+    left: 22%;
+}
+
+.lujing195{
+    position: relative;
+    width: 10vh;
+    height: 12vh;
+    top: -6.5vh;
+    left: 50%;
+}
+
+.change Text{
+    color: #ffffff;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 4vh;
+    font-weight: bolder;
+    letter-spacing: 1vw;
+    opacity: 0.65;
+    white-space: nowrap;
+}
+
+.treebottom{
+    position: relative;
+    top: -6.5vh;
+    width: 30vh;
+    height: 5vh;
+    opacity: 0.7;
+}

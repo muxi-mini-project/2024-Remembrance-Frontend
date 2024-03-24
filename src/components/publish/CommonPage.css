@@ -1,0 +1,45 @@
+.beijing{
+    width: 100vw;
+    height: 94vh;
+    position: absolute;
+    z-index: -2;
+}
+
+.blue{
+    position: absolute;
+    z-index: -1;
+    top: -5vh;
+    left: -70%;
+    width: 50vh;
+    width: 70vh;
+}
+
+.green{
+    position: absolute;
+    z-index: -1;
+    width: 80vh;
+    height: 80vh;
+    top:20vh;
+}
+
+.card{
+    width: 80vw;
+    background: #FFFFFF;
+    position: relative;
+    margin: 0 5vw;
+    top: 3vh;
+    border-radius: 1vh;
+    padding: 5vw 5vw 7.5vh 5vw;
+    z-index: 99999;
+}
+
+.place{
+    width: 80vw;
+    height: 4vh;
+    line-height: 4vh;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 3vh;
+    color: rgba(0, 0, 0, 0.715);
+    padding: 1vh 0;
+    letter-spacing: 0.5vw;
+}

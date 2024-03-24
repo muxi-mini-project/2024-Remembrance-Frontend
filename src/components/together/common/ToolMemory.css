@@ -1,0 +1,35 @@
+.toolMemory{
+    width: 6vh;
+    height: 28vh;
+    position: fixed;
+    left: 80%;
+    top: 70vh;
+    background: rgba(163, 202, 173, 0.60);
+    box-shadow: 0rpx 5rpx 11rpx 2rpx rgba(163,202,173,0.6), inset 0rpx 5rpx 11rpx 2rpx rgba(232,232,232,0.16);
+    border-radius: 7vw;
+    opacity: 1;
+}
+
+.toolMemory Image{
+    width: 5vh;
+    height: 5vh;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.centerlogo{
+    top:2.5vh;
+}
+
+.search{
+    top: 3vh;
+}
+
+.foot{
+    top: 3.5vh;
+}
+
+.publishCommon{
+    top: 4vh;
+}

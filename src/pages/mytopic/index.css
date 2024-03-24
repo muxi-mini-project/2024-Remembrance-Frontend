@@ -1,0 +1,99 @@
+.mytopic{
+    opacity: 0.5;
+}
+
+.topicnavber{
+    height: 6vh;
+    width: 100%;
+    background-color: #FFFFFF;
+    text-align: center;
+    line-height: 6vh;
+    letter-spacing: 0.5vw;
+    font-size: 3vh;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: 700;
+    position: sticky;
+    top: 0;
+    z-index: 99999;
+}
+
+.zu119{
+    width: 6vh;
+    height: 6vh;
+    position: absolute;
+    top: 0.3vh;
+    left: 3%;
+}
+
+.lajitong{
+    width: 6vh;
+    height: 6vh;
+    left: 85%;
+    top: 0.3vh;
+    position: absolute;
+}
+
+.background{
+    position: absolute;
+    width: 100%;
+    height: 94vh;
+    z-index: -2;
+}
+
+.blue{
+    width: 60vh;
+    height: 60vh;
+    position: absolute;
+    left: 30%;
+    top: -15vh;
+    z-index: -1;
+}
+
+.green{
+    width: 50vh;
+    height: 50vh;
+    position: absolute;
+    left: -50%;
+    top: 50vh;
+    z-index: -1;
+}
+
+.contentDisplay{
+    position: relative;
+    width: 100vw;
+    height: 94vh;
+    margin: 0 10vw;
+    overflow: scroll;
+    word-wrap: break-word;
+}
+
+.content{
+    padding: 1vw 1vw 2vw 5vw;
+    width: 74vw;
+    height: 24vh;
+    background: #FFFFFF;
+    position: relative;
+    z-index: 1;
+    margin: 4vh 0;
+    border-radius: 2vh;
+}
+
+.feelContent{
+    position: relative;
+    top: -2vw;
+    padding: 0 0 2vw 0;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 2.5vh;
+    width: 70vw;
+    height: 6vh;
+    overflow: scroll;
+    word-wrap: break-word;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.34);
+    letter-spacing: 0.5vw;
+}
+
+.deletecontent{
+    width: 10vw;
+    height: 10vw;
+    float: right;
+}

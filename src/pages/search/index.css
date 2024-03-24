@@ -1,0 +1,205 @@
+.searchback{
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+    z-index: -2;
+}
+
+.searchhome{
+    width: 15vw;
+    height: 8vh;
+    position: absolute;
+    top: 1.5vh;
+    left: 2%;
+}
+
+.box{
+    height: 6vh;
+    width: 75%;
+    position: absolute;
+    left: 20%;
+    top: 2vh;
+}
+
+.searchbutton{
+    height: 8.5vh;
+    width: 25vw;
+    position: absolute;
+    top: 1vh;
+    left: 73%;
+}
+
+.searchinput{
+    position: absolute;
+    left: 24%;
+    top: 3vh;
+    height: 4vh;
+    width: 50%;
+    overflow: hidden;
+}
+
+.searchbox Text{
+    font-size: 3vh;
+    font-family: 'Times New Roman', Times, serif;
+    letter-spacing: 1vw;
+    position: absolute;
+    left: 80%;
+    top: 3vh;
+}
+
+.searchhistory Text{
+    font-size: 3vh;
+    letter-spacing: 0.5vw;
+    font-family: 'Times New Roman', Times, serif;
+    position: absolute;
+    top: 11vh;
+    left: 5vw;
+}
+
+.searchhistory View{
+    font-size: 3vh;
+    letter-spacing: 0.5vw;
+    font-family: 'Times New Roman', Times, serif;
+    position: absolute;
+    top: 11vh;
+    left: 63%;
+}
+
+.expend::after{
+    content: ">";
+    display: inline-block;
+    transform: rotate(90deg);
+}
+
+.recover::after{
+    content: ">";
+    display: inline-block;
+    transform: rotate(-90deg);
+}
+
+.searchrubbish{
+    width: 6vh;
+    height: 6vh;
+    position: absolute;
+    top: 10vh;
+    left: 80%;
+}
+
+.zhixian{
+    position: absolute;
+    width: 50%;
+    left: 25%;
+    top: 15vh;
+    border-top: 1px solid rgba(39, 38, 38, 0.45);
+}
+
+.placedisplay{
+    width: 92vw;
+    padding: 0 0 0 2vw;
+    left: 8vw;
+    position: relative;
+    top: 18vh;
+    display: flex;
+    flex-wrap: wrap;
+    word-wrap: break-word;
+}
+
+.placedisplay View{
+    margin-right: 9vw;
+    margin-bottom: 2vh;
+    box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.406);
+    letter-spacing: 0.5vw;
+    font-size: 2vh;
+    font-family: 'Times New Roman', Times, serif;
+    width: 20vw;
+    background: #FFFFFF;
+    border-radius: 2vh;
+    height: 4vh;
+    text-align: center;
+    line-height: 4vh;
+}
+
+.zu137{
+    position: relative;
+    width: 90vw;
+    left: 5vw;
+    height: 18vh;
+    top: 20vh;
+}
+
+.guessyou{
+    position: relative;
+    width: 92vw;
+    padding: 1vw;
+    left: 8vw;
+    top: 24vh;
+}
+
+.searchyou{
+    font-size: 3vh;
+    letter-spacing: 0.5vw;
+    font-family: 'Times New Roman', Times, serif;
+    position: relative;
+    margin-bottom: 1vh;
+}
+
+.zhixian0{
+    position: relative;
+    border-bottom: 1px solid rgba(39, 38, 38, 0.45);
+    width: 50vw;
+    left: 50%;
+    transform: translateX(-60%);
+}
+
+.cities{
+    margin-top: 1vh;
+}
+
+.hot{
+    font-size: 2.5vh;
+    letter-spacing: 0.5vw;
+    font-family: 'Times New Roman', Times, serif;
+    position: relative;
+    margin-bottom: 1vh;
+    left: 2%;
+    color: #000000c8;
+}
+
+.citydisplay{
+    width: 92vw;
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    word-wrap: break-word;
+}
+
+.citydisplay View{
+    margin-right: 9vw;
+    margin-bottom: 2vh;
+    box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.406);
+    letter-spacing: 0.5vw;
+    font-size: 2vh;
+    font-family: 'Times New Roman', Times, serif;
+    width: 20vw;
+    background: #FFFFFF;
+    border-radius: 2vh;
+    height: 4vh;
+    text-align: center;
+    line-height: 4vh;
+}
+
+.specialland{
+    font-size: 2.5vh;
+    letter-spacing: 0.5vw;
+    font-family: 'Times New Roman', Times, serif;
+    position: relative;
+    margin-bottom: 1vh;
+    left: 2%;
+    color: #000000c8;
+}
+
+.searchpage{
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}

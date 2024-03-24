@@ -1,0 +1,22 @@
+.oneNavber{
+    height: 6vh;
+    line-height: 6vh;
+    z-index: 99999;
+    background: linear-gradient(to right, rgba(178, 221, 236, 0.76),rgba(214, 230, 229, 0.30));
+}
+
+.zu120{
+    position: relative;
+    left: 5%;
+    top: 1vh;
+    width: 5vh;
+    height: 5vh;
+}
+
+.oneNavber View{
+    margin-right: 5vw;
+    float: right;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 2vh;
+    letter-spacing: 1vw;
+}

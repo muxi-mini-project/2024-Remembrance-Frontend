@@ -1,0 +1,42 @@
+.mineIndex{
+    padding: 1vh 0;
+    column-count: 2;
+    text-align: center;
+    font-size: 3.5vh;
+    font-weight: bold;
+    letter-spacing: 0.5vw;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.mytextcontainer{
+    margin-bottom: 1.5vh;
+    width: 35vw;
+    line-height: 7vh;
+    height: 7vh;
+    position: relative;
+    left: 6vw;
+    background: #FFFFFF;
+    box-shadow: 0rpx 5rpx 11rpx 2rpx rgba(0,0,0,0.16), inset 0rpx 5rpx 11rpx 2rpx rgba(0,0,0,0.16);
+    border-radius: 1vh;
+    opacity: 1;
+}
+
+.mineIndexActive{
+    border-radius: 1vh;
+    background: rgba(150, 226, 182, 0.82);
+}
+
+.mymemory{
+    height: 93.1vh;
+    background: linear-gradient(180deg, #ECF5F3 0%, #B0E4D4 100%);
+    border-radius: 0rpx 0rpx 0rpx 0rpx;
+    opacity: 1;
+    }
+
+.jiahao{
+    left: 42.5%;
+    top:8vh;
+    position: absolute;
+    width: 8vh;
+    height: 8vh;
+}
