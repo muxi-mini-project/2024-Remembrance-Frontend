@@ -1,5 +1,5 @@
 .commonMemory{
-    height: 93.1vh;
+    height: 82.8vh;
     background: linear-gradient(254deg, #CCE9E6 0%, #AED5C9 100%);
     border-radius: 0rpx 0rpx 0rpx 0rpx;
     opacity: 1;
@@ -8,7 +8,7 @@
 .duorenMemory{
     position: fixed;
     left: 48%;
-    top:12.5vh;
+    top:20.5vh;
     height: 18vh;
     width: 48vw;
     background: #e8f4eb;
@@ -20,7 +20,7 @@
     width: 6vh;
     height: 1.5vh;
     left: 30%;
-    top:8.5vh;
+    top:20.5vh;
 }
 
 .zu83{
@@ -28,7 +28,7 @@
     width: 2.5vh;
     height: 1vh;
     left: 30%;
-    top: 13vh;
+    top: 21.5vh;
 }
 
 .zu85{
@@ -105,7 +105,7 @@
     width: 6vh;
     height: 6vh;
     position: fixed;
-    top:17vh;
+    top:32vh;
     left: 2%;
 }
 
@@ -113,8 +113,8 @@
     width: 11.5vh;
     height: 11.5vh;
     position: fixed;
-    left: 48%;
-    top: 31vh;
+    left: 42%;
+    top: 40vh;
 }
 
 .memory1{
@@ -122,12 +122,12 @@
     height: 28vh;
     position: fixed;
     left: -10%;
-    top:25vh;
+    top:38vh;
 }
 
 .memory1 View{
-    height: 22.5vh;
-    width: 22.5vh;
+    height: 20vh;
+    width: 20vh;
     position: absolute;
     left: 7%;
     top: 2vh;
@@ -138,8 +138,8 @@
 }
 
 .zu1{
-    width: 26vh;
-    height: 26vh;
+    width: 24vh;
+    height: 24vh;
     position: relative;
 }
 
@@ -157,7 +157,7 @@
 
 .memory1 Text{
     position: relative;
-    left: 28%;
+    left: 25%;
     top:-14.8vh;
 }
 
@@ -165,8 +165,8 @@
     width: 18vh;
     height: 18vh;
     position: fixed;
-    left: 28%;
-    top: 47vh;
+    left: 30%;
+    top: 57vh;
 }
 
 .memory2 View{
@@ -182,15 +182,15 @@
 }
 
 .zu2{
-    height: 15vh;
-    width: 15vh;
+    height: 13vh;
+    width: 13vh;
 }
 
 .memory2 Text{
-    font-size: 2.5vh;
+    font-size: 2vh;
     position: relative;
     left: 15%;
-    top:-9.2vh;
+    top:-8.2vh;
 }
 
 
@@ -198,19 +198,19 @@
     width: 40vh;
     height: 40vh;
     position: fixed;
-    top: 34vh;
-    left: 55%;
+    top: 38vh;
+    left: 60%;
 }
 
 .zu3{
-    width: 36vh;
-    height: 36vh;
+    width: 32vh;
+    height: 32vh;
     transform: rotate(270deg);
 }
 
 .memory3 View{
-    height: 32vh;
-    width: 32vh;
+    height: 28vh;
+    width: 29vh;
     position: absolute;
     left: 5%;
     top: 2.2vh;
@@ -222,21 +222,21 @@
 
 .memory3 Text{
     position: relative;
-    left: 25%;
+    left: 20%;
     top: -20.5vh;
 }
 
 .memory4{
     position: fixed;
-    top: 60vh;
+    top: 65vh;
     left: -25%;
     width: 35vh;
     height: 35vh;
 }
 
 .memory4 View{
-    height: 36vh;
-    width: 36vh;
+    height: 32vh;
+    width: 32vh;
     position: absolute;
     left: 5%;
     top: 1.5vh;
@@ -247,13 +247,13 @@
 }
 
 .zu4{
-    width: 40vh;
-    height: 40vh;
+    width: 35vh;
+    height: 35vh;
     position: relative;
 }
 
 .memory4 Text{
     position: relative;
     top:-22vh;
-    left: 50%;
+    left: 40%;
 }

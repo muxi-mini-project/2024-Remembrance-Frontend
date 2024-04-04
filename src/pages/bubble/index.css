@@ -5,12 +5,15 @@
 
 .memoryNavbar{
     width: 100%;
-    height: 6vh;
+    height: 5.5vh;
+    position: relative;
 }
 
 .background{
+    position: relative;
     width: 100%;
-    height: 94vh;
+    height: 83.8vh;
+    overflow: hidden;
 }
 
 .zu120{
@@ -44,8 +47,7 @@
 .paoBackground{
     position: absolute;
     width: 100%;
-    height: 94vh;
-    top: 6vh;
+    height: 84vh;
     z-index: -2;
 }
 
@@ -81,19 +83,22 @@
     margin: 0 10%;
 }
 
-.myusername{
+/* .myusername{
     font-family: 'Times New Roman', Times, serif;
     letter-spacing: 1vw;
     font-size: 2.3vh;
     opacity: 0.9;
-}
+    height: 3vh;
+} */
 
 .myuserdate{
     position: relative;
     opacity: 0.5;
+    height: 1.5vh;
 }
 
 .textShow{
+    top:1vh;
     width: 80vw;
     height: 10vh;
     position: relative;
@@ -109,26 +114,36 @@
     transform: translateX(-55%);
 }
 
-.photoShow{
-    width: 80vw;
-    height: 32vh;
+.photoShow {
+    width: 30vh; /* 设置为与高度相同的数值 */
+    height: 30vh; /* 设置为相同的数值，以使其展示为正方形 */
     position: relative;
     background: rgba(228, 228, 228, 0.62);
-    border: 1px solid rgba(0, 0, 0, 0.313);
-    padding: 5px 10px;
+    display: flex; /* 使用 flex 布局 */
+    align-items: center; /* 垂直居中 */
+    justify-content: center; /* 水平居中 */
+    left: 10%;
+    top: -1vh;
 }
+
+.photoShow Image {
+    width: 100%; /* 图片宽度占满父容器 */
+    height: 100%; /* 图片高度占满父容器 */
+    object-fit: contain; /* 图片保持原比例，并完全适合父容器 */
+}
+
 
 .lujing188{
     height: 1px;
     width: 92vw;
     position: relative;
     left: -5%;
-    top: 0.5vh;
+    top: -2vh;
 }
 
 .comment{
     position: relative;
-    top: 0.5vh;
+    top: -2vh;
 }
 
 .pinglun{
@@ -162,14 +177,14 @@
 .commentName{
     font-size: 2vh;
     letter-spacing: 0.5vw;
-    color: #2e2d2dcb;
+    color: #151414cb;
 }
 
 .commentDate{
     position: relative;
     left: 75%;
     font-size: 1.8vh;
-    color: #5b5a5a6c;
+    color: #0e0d0d6c;
 }
 
 .content{
@@ -209,4 +224,12 @@
     font-weight: 800;
     background: rgba(255, 255, 255, 1);
     line-height: 3.5vh;
+}
+
+.noComments{
+    text-align: center;
+    font-size: 3vh;
+    color: #00000079;
+    position: relative;
+    top: 0.5vh;
 }

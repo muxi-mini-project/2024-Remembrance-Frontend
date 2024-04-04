@@ -173,6 +173,15 @@
     word-wrap: break-word;
 }
 
+.all{
+    height: 100vh;
+    overflow: hidden;
+}
+
+.onsearch{
+    position: relative;
+}
+
 .citydisplay View{
     margin-right: 9vw;
     margin-bottom: 2vh;

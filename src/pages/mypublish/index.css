@@ -12,7 +12,10 @@
     z-index: 99999;
 }
 
-
+.all{
+    height: 100vh;
+    overflow: hidden;
+}
 
 .zu169{
     position: relative;

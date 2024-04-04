@@ -5,6 +5,7 @@
 .juxing61{
     width: 100%;
     height: 6vh;
+    z-index: 2;
 }
 
 .home{
@@ -18,7 +19,14 @@
 .background{
     position: absolute;
     width: 100%;
-    height: 94vh;
+    height: 83.5vh;
+    z-index: -99;
+}
+
+.onperson{
+    position: relative;
+    height: 83.4vh;
+    overflow: hidden;
 }
 
 .username{

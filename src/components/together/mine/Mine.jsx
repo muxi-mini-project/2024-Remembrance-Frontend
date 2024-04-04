@@ -1,14 +1,14 @@
 import { View, Text, Image } from '@tarojs/components';
 import React, { useState } from 'react';
-import jiahaoImage from '../../../assets/mine/加号@3x.png';
 import './Mine.css'
 import Look from './Look';
 import Topic from './Topic';
 import Taro from '@tarojs/taro';
 
 
-export default function Mine() {
+export default function Mine(props) {
 
+  const {userid} = props;
   const [mycurrent,setMycurrent] = useState(0);
   const [looknumber,setLooknumber] = useState(-1);
 
@@ -33,7 +33,7 @@ export default function Mine() {
               浏览记忆
             </View>
           </View>
-          <Image className='jiahao' src={jiahaoImage} onClick={()=>addMoreMemory()}></Image>
+          <Image className='jiahao' src='https://img2.imgtp.com/2024/03/27/9iZQethc.png' onClick={()=>addMoreMemory()}></Image>
           <View className='mytextcontainer'>
             <View onClick={()=>changeMycurrent(1)} className={mycurrent===1?'mineIndexActive':''}>
               专题
@@ -41,8 +41,8 @@ export default function Mine() {
           </View>
         </View>
 
-        {mycurrent === 0 && <Look looknumber={looknumber} setLooknumber={setLooknumber}/>}
-        {mycurrent === 1 && <Topic/>}
+        {mycurrent === 0 && <Look userid={userid} looknumber={looknumber} setLooknumber={setLooknumber}/>}
+        {mycurrent === 1 && <Topic userid={userid}/>}
 
       </View>
     </>

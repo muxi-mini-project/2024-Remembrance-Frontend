@@ -1,8 +1,7 @@
 export default defineAppConfig({
   pages: [
-
     'pages/index/index',
-    'pages/qipao/index',
+    'pages/bubble/index',
     'pages/personal/index',
     'pages/mytopic/index',
     'pages/foot/index',
@@ -14,6 +13,7 @@ export default defineAppConfig({
     backgroundTextStyle: 'light',
     navigationBarBackgroundColor: '#fff',
     navigationBarTitleText: 'WeChat',
-    navigationBarTextStyle: 'black'
+    navigationBarTextStyle: 'black',
+    navigationStyle:'custom'
   }
 })
