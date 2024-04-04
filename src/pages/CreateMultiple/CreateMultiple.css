@@ -1,7 +1,7 @@
 .background {
     display: flex;
     flex-direction: column;
-    background: url(../../assets/image/CreateMultiple/background.png) no-repeat;
+    background: url(https://img2.imgtp.com/2024/03/24/06IanIqh.png) no-repeat;
     background-size: 100vw;
     width: 100vw;
     height: 100vh;
@@ -17,25 +17,28 @@
     width: 100vw;
     background-color: #f8f8f8;
     display: flex;
-    justify-content: space-between;
 }
 
 .none {
     width: 30vw;
     height: 5vh;
+    color: transparent;
 }
 
 .title-logo {
-    background: url(../../assets/image/Log-in/memory.png) no-repeat;
+    background: url(https://img2.imgtp.com/2024/03/24/zG3Llx0E.png) no-repeat;
     background-size: 150px;
     background-position-Y: 90%;
-    width: 30vw;
+    width: 20vw;
+    position: relative;
+    left: 2vw;
 }
 
 .title-content {
     font: 600 40px FZYaoTi;
-    position: relative;
+    position: absolute;
     top: 60%;
+    left: 38%;
 }
 
 .content {
@@ -58,7 +61,7 @@
 .return {
     width: 10vw;
     height: 3.5vh;
-    background: url(../../assets/image/CreateMultiple/return.png) no-repeat;
+    background: url(https://img2.imgtp.com/2024/03/24/LGmcvwNR.png) no-repeat;
     background-size: 10vw;
     background-position-y: 45%;
     position: absolute;
@@ -98,14 +101,14 @@
 .pattern1 {
     width: 40vw;
     height: 30vh;
-    background: url(../../assets/image/CreateMultiple/pattern1.png) no-repeat;
+    background: url(https://img2.imgtp.com/2024/03/24/PfHASomK.png) no-repeat;
     background-size: 40vw;
 }
 
 .pattern2 {
     width: 40vw;
     height: 30vh;
-    background: url(../../assets/image/CreateMultiple/patern2.png) no-repeat;
+    background: url(https://img2.imgtp.com/2024/03/24/0OXJuO9o.png) no-repeat;
     background-size: 40vw;
 }
 

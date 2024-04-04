@@ -1,4 +1,4 @@
-import React, { useState,useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import { View } from "@tarojs/components"
 import Taro from '@tarojs/taro'
 import Header from '../../component/Login_header/Login_header'
@@ -8,10 +8,10 @@ import './Forget2.css'
 
 
 export default function Register() {
-const [password,setPassword]=useState("")
-const [secondPassword,setSecondPassword]=useState("")
-const [CurrentMail,setCurrentMail]=useState('')
-const [view,setview]=useState(false)
+  const [password, setPassword] = useState("")
+  const [secondPassword, setSecondPassword] = useState("")
+  const [CurrentMail, setCurrentMail] = useState('')
+  const [view, setview] = useState(false)
   const CurrentUserContent = React.createContext()
 
   // 传过来的-当前用户的邮箱
@@ -22,12 +22,15 @@ const [view,setview]=useState(false)
     setCurrentMail(key)
     console.log('Received data:', key);
   }, [])
+
+  console.log(password)
+
   return (
     <>
       <View className='background'>
         <View className='Register'>
           <Header></Header>
-          <CurrentUserContent.Provider value={{ CurrentMail:CurrentMail,password,secondPassword,setPassword,setSecondPassword,view,setview }}>
+          <CurrentUserContent.Provider value={{ CurrentMail: CurrentMail, password:password, secondPassword, setPassword, setSecondPassword, view, setview }}>
             <Input CurrentUserContent={CurrentUserContent}></Input>
             <Submit CurrentUserContent={CurrentUserContent}></Submit>
           </CurrentUserContent.Provider>

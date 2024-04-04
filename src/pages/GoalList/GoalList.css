@@ -1,65 +1,19 @@
-.header {
-    position: relative;
-    top: 2vh;
-    display: flex;
-    flex-direction: column;
-    padding: 1vh;
-}
 
-.title {
-    height: 10vh;
-    background-color: #f8f8f8;
-    display: flex;
-    justify-content: space-between;
-}
-
-.none {
-    width: 30vw;
-    height: 5vh;
-}
-
-.title-logo {
-    background: url(../../assets/image/Log-in/memory.png) no-repeat;
-    background-size: 150px;
-    background-position-y: 90%;
-    width: 30vw;
-}
-
-.title-content {
-    font: 600 40px FZYaoTi;
-    height: 40px;
-    position: absolute;
-    bottom: 40%;
-    left: 37%;
-}
-
-.second-title {
-    display: flex;
-    justify-content: space-between;
-    background-color: #fff;
-    height: 5vh;
-}
-
-#second-title-content {
-    line-height: 5vh;
-    position: absolute;
-    left: 43vw;
-    top: 11vh;
-}
 
 .return {
     width: 10vw;
     height: 5vh;
-    background: url(../../assets/image/GoalList/return.png) no-repeat;
+    background: url(https://img2.imgtp.com/2024/03/24/LGmcvwNR.png) no-repeat;
     background-size: 11vw;
     background-position-x: 50%;
     background-position-y: 5%;
 }
 
-.chat-friends {
+.next-page {
+    /* chat-friends */
     width: 10vw;
     height: 5vh;
-    background: url(../../assets/image/GoalList/chat-friends.png) no-repeat;
+    background: url(https://img2.imgtp.com/2024/03/24/BZL4lN1r.png) no-repeat;
     background-size: 11vw;
     background-position-x: 50%;
     background-position-y: 5%;
@@ -68,7 +22,7 @@
 .background {
     width: 100vw;
     height: 89vh;
-    background: url(../../assets/image/Multiple/background.png);
+    background: url(https://img2.imgtp.com/2024/03/24/lr8jUOHp.png);
     overflow-y: auto;
     background-size: 90vw;
     background-position-x: 50%;
@@ -76,7 +30,7 @@
 }
 
 .paper-airplane1 {
-    background: url(../../assets/image/GoalList/paper-airplane2.png) no-repeat;
+    background: url(https://img2.imgtp.com/2024/03/24/RKLeFj6B.png) no-repeat;
     width: 40vw;
     height: 30vh;
     background-size: 10vw;
@@ -86,7 +40,7 @@
 }
 
 .paper-airplane2 {
-    background: url(../../assets/image/GoalList/paper-airplane.png) no-repeat;
+    background: url(https://img2.imgtp.com/2024/03/24/8mH9o7zy.png) no-repeat;
     width: 40vw;
     height: 20vh;
     background-size: 35vw;
@@ -106,6 +60,15 @@
     flex-direction: column;
     gap: 1vh;
     align-items: flex-end;
+    position: relative;
+    right: 5vw;
+    top: 2vh;
+}
+.onmessagelist {
+    display: flex;
+    flex-direction: column;
+    gap: 1vh;
+    align-items: flex-start;
     position: relative;
     right: 5vw;
     top: 2vh;
@@ -131,8 +94,8 @@
 
 .chatContent2 {
     max-width: 80vw;
-    width: auto;
-    height: auto;
+    width: 70vw;
+    /* height: 50vh; */
     background-color: #fff;
     border-radius: 20px;
     padding: 2%;
@@ -166,7 +129,7 @@
 .send {
     width: 10vw;
     height: 6vh;
-    background: url(../../assets/image/GoalList/sendPhoto.png) no-repeat;
+    background: url(https://img2.imgtp.com/2024/03/24/sdzJEC57.png) no-repeat;
     background-size: 14vw;
     background-position-x: 50%;
     background-position-y: 45%;

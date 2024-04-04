@@ -4,13 +4,13 @@ import { useContext } from "react"
 
 export default function ChatList(prop) {
    const {CurrentUserContent}=prop
-   const {chatlist}=useContext(CurrentUserContent)
+   const {OnMessagelist}=useContext(CurrentUserContent)
     return (
         <>
         <View className='chatlist-background'>
             {
-                chatlist && chatlist.map((item) =>
-                    <View className='chatlist' key={item.id}>
+                OnMessagelist && OnMessagelist.map((item) =>
+                    <View className='onmessagelist' key={item.id}>
                         <View className='username'>{item.username}</View>
                         <View className='chatContent1'>{item.content}</View>
                     </View>

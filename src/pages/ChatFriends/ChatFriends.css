@@ -1,59 +1,20 @@
 .background {
     width: 100vw;
     height: 100vh;
-    background: url(../../assets/image/ChatFriends/background.png);
+    background: url(https://img2.imgtp.com/2024/03/24/lr8jUOHp.png);
     background-size: 100vw;
     background-position-x: 50%;
     /* background-position-y: 10%; */
 }
 
-.header {
-    display: flex;
-    flex-direction: column;
-    padding: 1vh;
-}
-
-.title {
-    height: 10vh;
-    background-color: #f8f8f8;
-    display: flex;
-    justify-content: space-between;
-}
-
-.none {
-    width: 30vw;
-    height: 5vh;
-}
-
-.title-logo {
-    background: url(../../assets/image/Log-in/memory.png) no-repeat;
-    background-size: 150px;
-    background-position-y: 90%;
-    width: 30vw;
-}
-
-.title-content {
-    font: 600 40px FZYaoTi;
-    position: relative;
-    top: 60%;
-}
-
-.second-title {
-    display: flex;
-    justify-content: space-between;
-    background-color: #fff;
-    height: 5vh;
-}
-
-#second-title-content {
-    font: 600 40px FZYaoTi;
-    line-height: 5vh;
+.next-page{
+    color: transparent;
 }
 
 .return {
-    width: 30vw;
+    width: 10vw;
     height: 3.5vh;
-    background: url(../../assets/image/CreateMultiple/return.png) no-repeat;
+    background: url(https://img2.imgtp.com/2024/03/24/LGmcvwNR.png) no-repeat;
     background-size: 10vw;
 }
 
@@ -72,7 +33,7 @@
 }
 
 .airplane1 {
-    background: url(../../assets/image/ChatFriends/airplane1.png) no-repeat;
+    background: url(https://img2.imgtp.com/2024/03/24/jv5dqZk3.png) no-repeat;
     width: 10vw;
     height: 5vh;
     background-size: 10vw;
@@ -82,7 +43,7 @@
 }
 
 .airplane2 {
-    background: url(../../assets/image/ChatFriends/airplane2.png) no-repeat;
+    background: url(https://img2.imgtp.com/2024/03/24/XgPqDdFs.png) no-repeat;
     width: 40vw;
     height: 20vh;
     background-size: 38vw;
@@ -147,11 +108,13 @@
 #default {
     background-color: #CDE8FA;
 }
+
 .render-list-back {
     display: flex;
     flex-direction: column;
     gap: 3vh;
 }
+
 .render-background {
     display: flex;
     flex-direction: column;
@@ -160,7 +123,7 @@
     position: relative;
     top: 4vh;
     gap: 7vh;
-   
+
 }
 
 .renderlist {
@@ -181,7 +144,7 @@
 }
 
 .cancle {
-    background: url(../../assets/image/ChatFriends/cancle.png) no-repeat;
+    background: url(https://img2.imgtp.com/2024/03/24/tZHvmLAB.png) no-repeat;
     width: 8vw;
     height: 4vh;
     background-size: 8vw;

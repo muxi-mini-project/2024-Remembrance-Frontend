@@ -13,11 +13,11 @@ export default function Submit(prop) {
             url: '../../pages/Log_in/Log_in'
         })
 
-        // 更改密码 
+        // 注册
         Services(
             {
-                url: '/api/user/changepassword',
-                method: 'POST',
+                url: '/api/register',
+                method: 'PUT',
                 data: { "password": password, "email": CurrentMail }
             }
         ).then(function (response) {
@@ -26,10 +26,7 @@ export default function Submit(prop) {
             console.log("request fail", error)
         })
 
-
     }, [])
-
-    console.log(CurrentMail, password)
 
     const handleBackClick = () => {
         Taro.navigateBack({

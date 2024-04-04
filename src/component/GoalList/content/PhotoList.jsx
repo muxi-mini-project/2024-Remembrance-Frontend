@@ -1,5 +1,6 @@
 import { useContext } from 'react'
-import { View } from '@tarojs/components'
+import { View,Image } from '@tarojs/components'
+import defaultImg from '../../../assets/image/ChatFriends/airplane1.png'
 
 export default function PictureList(prop) {
   const { CurrentUserContent } = prop
@@ -10,7 +11,7 @@ export default function PictureList(prop) {
                 photoList.map((item) =>
                     <View className='chatlist' key={item.id}>
                         <View className='username'>{item.username}</View>
-                        <View className='chatContent2'>{item.photo}</View>
+                        <Image className='chatContent2' src={item.photo ? item.photo : defaultImg}></Image>
                     </View>
                 )
 

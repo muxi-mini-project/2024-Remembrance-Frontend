@@ -11,13 +11,15 @@ import './Log_in.css'
 export default function Log_in() {
   const [mailbox, setMailbox] = useState("")
   const [password, setPassword] = useState("")
+  const [userId,setUserId]=useState("")
+ 
   const CurrentUserContent = React.createContext()
  
   return (
     <View className='background'>
       <View className='log-in'>
         <Header></Header>
-        <CurrentUserContent.Provider value={{ mailbox:mailbox, setMailbox:setMailbox, password:password, setPassword:setPassword }}>
+        <CurrentUserContent.Provider value={{ setUserId:setUserId,userId:userId,mailbox:mailbox, setMailbox:setMailbox, password:password, setPassword:setPassword }}>
           <Input CurrentUserContent={CurrentUserContent}></Input>
           <View className='submit-back'>
           <Submit CurrentUserContent={CurrentUserContent}></Submit>
