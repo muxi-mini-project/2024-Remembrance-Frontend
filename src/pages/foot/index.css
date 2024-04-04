@@ -1,6 +1,15 @@
 .foot{
-    
     opacity: 0.5;
+}
+
+.all{
+    height: 100vh;
+    overflow: hidden;
+}
+
+.footplay{
+    position: relative;
+    height: 90vh;
 }
 
 .footnavber{
@@ -57,7 +66,7 @@
 
 .footcard{
     width: 78vw;
-    height: 30vh;
+    height: 25vh;
     background: #FFFFFF;
     margin: 3vh 8vw 3vh 8vw;
     padding: 2vw 2vw 2vh 5vw;
@@ -98,34 +107,25 @@
 }
 
 .footphoto{
-    column-count: 2;
-    width: 55vw;
-    position: relative;
-    top: -18.5vh;
-    left: 15%;
-}
-
-.footphoto View{
+    top: -20vh;
+    left: 30%;
     width: 11vh;
     height: 11vh;
     margin: 0 0 5vw 4vw;
+    position: relative;
     border: 1px solid rgba(0, 0, 0, 0.299);
     border-radius: 1vh;
 }
 
 .footfeel{
     width: 89%;
-    height: 10vh;
+    height: 5vh;
     border: 1px solid rgba(0, 0, 0, 0.299);
     position: relative;
     top: -18.5vh;
     border-radius: 1vh;
     overflow: scroll;
     padding: 2vw 3vw;
-}
-
-.footfeeling{
-    border-bottom: 1px solid rgba(44, 43, 43, 0.349);
 }
 
 .content{

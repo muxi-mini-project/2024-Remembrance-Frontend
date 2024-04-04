@@ -1,62 +1,64 @@
 import { View, Image, Text } from '@tarojs/components';
 import './index.css';
-import zu169Image from '../../assets/mypublish/组 169@2x.png';
-import Taro from '@tarojs/taro';
-import backgroundImage from '../../assets/mypublish/背景图@2x.png'
 import DiyTopic from '../../components/DiyTopic';
 import { useState, useEffect } from 'react';
 import PublishFeel from '../../components/PublishFeel';
 import { Services } from '../../components/service/Services';
+import Taro from '@tarojs/taro';
+import Header from '../../components/Header';
 
 export default function Mypublish() {
   const initialTopicName = "#自定专题";
   const initialFeeling = "想留存什么记忆······";
+  const initialPath = 'https://img2.imgtp.com/2024/03/27/rxyFfVbf.png';
   const [diynumber, setDiynumber] = useState(1);
   const [topicName, setTopicName] = useState(initialTopicName);
   const [feeling,setFeeling] = useState(initialFeeling)
+  const [filePaths, setFilePaths] = useState([initialPath]);
 
-  const userId = '123456';
-
-  const publishData = {
-    albumname:topicName,
-    text: feeling,
-    cloudurl: 1,
-  };
-
-  useEffect(()=>{
-    Services({
-      url:`/api/photo/gettoken?userId=${userId}`,
-      method:"GET",
-    }).then(response=>{
-      console.log(response);
-    }).catch(error=>{
-      console.log(error);
-    })
-  },[]);
-
-  const putAlbum = () => {
+  const userid = Taro.getStorageSync("userid");
+  const putAlbum = (url,name) => {
     console.log("发布记忆");
     Services({
-        url: `/api/photo/personal/post?userId=${userId}`,
+        url: `/api/photo/personal/post`,
         method: "Put",
-        data: publishData // 将data对象传递给Services函数
+        data:{
+          "cloudurl": url,
+          "personalalbumname":name,
+          "text": feeling,
+          "userid": userid
+        }
     }).then(response => {
-        // 处理响应
-        console.log(response);
-        Taro.navigateBack();
+        console.log(name);
+        console.log("成功",response);
+        // 发布成功
+        if (!isFirstPage()) {
+          Taro.navigateBack();
+        } else {
+          console.log("当前页面为第一页，无法返回");
+        }
     }).catch(error => {
-        // 处理错误
         console.error(error);
         // 发布失败的提示或者其他操作
     });
-};
+  };
+  
+  // 检查当前页面是否为第一页
+  const isFirstPage = () => {
+    const pages = Taro.getCurrentPages();
+    return pages.length === 1;
+  };
 
   const publishCommon = () => {
     console.log("发布");
 
-    if(topicName !== initialTopicName)
+    if(topicName !== initialTopicName && feeling !== initialFeeling && filePaths[0] !== initialPath)
     {
-      putAlbum();
+      if(topicName !== '' && feeling !== '' && filePaths[0] !== '')
+      {
+        putAlbum(filePaths[0],topicName);
+        Taro.navigateBack();
+      }
     }
   }
 
@@ -64,19 +66,25 @@ export default function Mypublish() {
     setDiynumber(0);
 }
 
+  const backCommon = ()=>{
+    console.log("返回");
+    Taro.navigateBack();
+  }
+
   return (
-    <>
+  <View className='all'>
+    <Header></Header>
       <View className={diynumber === 1 ? '' : 'publish'}>
         <View>
           <View className='oneNavber'>
-            <Image className='zu169' src={zu169Image} onClick={publishCommon}></Image>
+            <Image className='zu169' src='https://img2.imgtp.com/2024/03/27/6e5v1oOQ.png' onClick={backCommon}></Image>
             <View onClick={publishCommon}>发布</View>
           </View>
         </View>
         <View className='commonPage'>
-        <Image className='beijing' src={backgroundImage}></Image>
+        <Image className='beijing' src='https://img2.imgtp.com/2024/03/27/yb7QKmYW.png'></Image>
         <View className='card'>
-            <PublishFeel initialFeeling={initialFeeling} feeling={feeling} setFeeling={setFeeling}/>
+            <PublishFeel filePaths={filePaths} setFilePaths={setFilePaths} initialFeeling={initialFeeling} feeling={feeling} setFeeling={setFeeling}/>
             <Text className='diytopic' onClick={()=>choseTopic()}>{topicName}</Text>
         </View>
     </View>
@@ -84,6 +92,6 @@ export default function Mypublish() {
       <View>
         {diynumber === 0 ? <DiyTopic diynumber={diynumber} topicName={topicName} setTopicName={setTopicName} setDiynumber={setDiynumber} /> : null}
       </View>
-    </>
+    </View>
   );
 }

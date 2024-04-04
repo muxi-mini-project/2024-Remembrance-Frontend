@@ -1,18 +1,11 @@
 import Taro from "@tarojs/taro";
 
-const baseUrl = 'http://127.0.0.1:4523/m1/3942932-0-default';
+const baseUrl = 'http://8.138.81.141:8088';
 
-export function Services(props = {
-    url: '',
-    data: '',
-    header: {"Content-Type": "application/json"},
-    method: ''
-}) {
-    const { url, data, header, method } = props;
-
+export function Services({ url = '', data = {}, header = {"Content-Type": "application/json"}, method = 'GET' }) {
     // 创建一个新的请求配置对象，避免修改传入的参数
     const requestConfig = {
-        url: baseUrl + url,
+        url: baseUrl + url.trim(),
         data,
         header,
         method

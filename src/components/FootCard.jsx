@@ -1,32 +1,29 @@
 import { Image, Text, View } from '@tarojs/components'
+import Taro from '@tarojs/taro';
 import React from 'react'
-import zu177Image from '../assets/foot/组 177@2x.png'
-import zu158Image from '../assets/foot/组 158@2x.png'
-
 export default function FootCard(props) {
 
-    const {footnumber,setFootnumber} = props
+    const {footnumber,setFootnumber,footContent} = props;
+
+    const deleteFoot = ()=>{
+      setFootnumber(1);
+      console.log(footContent);
+      Taro.setStorageSync("photoid",footContent.ID);
+    }
 
   return (
     <>
     <View className='footcard'>
-          {footnumber !== 0 ? <Image onClick={()=>{setFootnumber(1)}} className='zu158' src={zu158Image}></Image>:''}
+          {footnumber !== 0 ? <Image onClick={()=>deleteFoot()} className='zu158' src='https://img2.imgtp.com/2024/03/27/QNqheTbu.png'></Image>:''}
           <View className='footplace'>
-            <Image className='zu177' src={zu177Image}></Image>
-            <View>大理</View>
+            <Image className='zu177' src='https://img2.imgtp.com/2024/03/27/rbI8BdRt.png'></Image>
+            <View>{footContent.location}</View>
           </View>
-          <View className='footphoto'>
-            <View></View>
-            <View></View>
-          </View>
+          <Image className='footphoto' src={footContent.cloudurl}/>
           <View className='footfeel'>
             <View className='footfeeling'>
-              <View className='content'>11111111111111111111111111111111111111111111111111111111111111111111111111</View>
-              <Text className='commentDate'>2024.10.30</Text>
-            </View>
-            <View className='footfeeling'>
-              <View className='content'>11111111111111111111111111111111111111111111111111111111111111111111111111</View>
-              <Text className='commentDate'>2024.10.30</Text>
+              <View className='content'>{footContent.text}</View>
+              <Text className='commentDate'>{footContent.date}</Text>
             </View>
           </View>
         </View>

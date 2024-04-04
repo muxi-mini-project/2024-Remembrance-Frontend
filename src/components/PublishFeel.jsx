@@ -1,17 +1,18 @@
-import { View, Image, Textarea, Text } from '@tarojs/components'
-import React, { useState, useEffect } from 'react'
-import './PublishFeel.css'
-import * as qiniu from 'qiniu-js'
-import addphotoImage from '../assets/publish/添加图片.png'
-import { Services } from './service/Services' // 假设这是您定义的服务函数
+import { View, Image, Textarea } from '@tarojs/components';
+import React, { useState, useEffect } from 'react';
+import './PublishFeel.css';
+import * as qiniu from 'qiniu-js'; // 使用 import * as 语法导入整个模块
+import { Services } from './service/Services'; // 假设这是您定义的服务函数
+import Taro from '@tarojs/taro';
 
 export default function PublishFeel(props) {
+    const { initialFeeling, feeling, setFeeling, filePaths ,setFilePaths } = props; // 文件列表
+    const [postPhoto, setPostPhoto] = useState({
+        key: '',
+        token: ''
+    });
 
-    const { initialFeeling, feeling, setFeeling } = props;
-    const [fileList, setFileList] = useState([]); // 文件列表
-    const [postPhoto,setPostPhoto] = useState(null)
-
-    const userid = '1';
+    const userid = Taro.getStorageSync("userid");
 
     useEffect(() => {
         // 在此处调用获取七牛云上传凭证的函数，并设置对应的状态
@@ -19,9 +20,8 @@ export default function PublishFeel(props) {
             url: `/api/photo/gettoken?userid=${userid}`,
             method: "GET",
         }).then(response => {
-            console.log(response);
-            const { key, token, putExtra, config } = response.data; 
-            setPostPhoto({key:key,token:token,putExtra:putExtra,config:config});
+            console.log("七牛",response);
+            setPostPhoto({ key: "image1", token: response.message });
         }).catch(error => {
             console.log(error);
         });
@@ -43,48 +43,42 @@ export default function PublishFeel(props) {
         }
     }
 
-    const addPhoto = (evt) => {
-        const selectedFile = evt.target.files[0];
-        // 在此处调用上传文件的函数
-        if (selectedFile && postPhoto) {
-            const { key, token, putExtra, config } = postPhoto;
-            const observable = qiniu.upload(selectedFile, key, token, putExtra, config);
-            observable.subscribe({
-                next: (response) => {
-                    console.log(response);
-                    // 在上传成功后，将文件添加到文件列表中
-                    setFileList([...fileList, selectedFile]);
-                },
-                error: (error) => {
-                    console.error(error);
-                    // 处理上传失败的情况
-                },
-                complete: () => {
-                    console.log('上传完成');
-                }
-            });
-        }
-    }
+    const addPhoto = async () => {
+        await chooseImage();
+    };
 
-
+    const chooseImage = async () => {
+            Taro.chooseImage({
+                count: 1,
+                sizeType: ['original', 'compressed'],
+                sourceType: ['album', 'camera'],
+            }).then(res=>{
+                console.log(res);
+                const tempFilePaths = res.tempFilePaths;
+                console.log(tempFilePaths);
+                setFilePaths(tempFilePaths);
+            }).catch(error=>{
+                console.log(error);
+            })
+    };
+    
+    useEffect(() => {
+        console.log(filePaths); // 在 fileList 变化时打印
+    }, [filePaths]);
+    
+    
     return (
         <>
             <Textarea value={feeling} className='yourFeel' onFocus={clearText} onBlur={returnText} onInput={inputFeel}></Textarea>
             <View className='photoShow'>
-                {fileList.map((file, index) => (
+                {filePaths.map((file, index) => (
                     <View key={index} className='photoItem'>
-                        <Image className='photo' src={URL.createObjectURL(file)} />
-                    </View>
-                ))}
-                {fileList.length < 9 && (
-                    <View className='photoItem'>
                         <View onClick={addPhoto}>
-                            <Image className='addphoto' src={addphotoImage}></Image>
-                        </View>
+                        <Image className='addphoto' src={file}></Image>
                     </View>
-                )}
+                </View>
+                ))}
             </View>
         </>
     )
 }
-

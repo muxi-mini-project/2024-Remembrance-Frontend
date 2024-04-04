@@ -15,18 +15,19 @@
     margin: 5vw 0;
 }
 
-.photo{
+.photoItem{
     margin: 1.5vw;
-    width: 21.5vw;
-    height: 21.5vw;
-    box-shadow: 2px 1px 5px rgba(0, 0, 0, 0.429);
+    width: 50vw;
+    height: 50vw;
+    border-radius: 3vw;
+    box-shadow: 2px 1px 1px 5px rgba(125, 124, 124, 0.089);
 }
 
 .addphoto{
-    margin: 1.5vw;
-    width: 21.5vw;
-    height: 21.5vw;
-    box-shadow: 2px 1px 5px rgba(0, 0, 0, 0.429);
+    width: 50vw;
+    height: 50vw;
+    border-radius: 2vw;
+    box-shadow: 2px 1px 1px 5px rgba(88, 88, 88, 0.429);
 }
 
 .diytopic{
