@@ -3,7 +3,7 @@ import Taro from '@tarojs/taro'
 import { View } from "@tarojs/components"
 import Header from '../../component/Login_header/Login_header'
 import Input from '../../component/Register2_Forget2/Input'
-import Submit from '../../component/Register2_Forget2/Submit'
+import Submit from '../../component/Register2_Forget2/Register2_submit'
 import './Register2.css'
 
 

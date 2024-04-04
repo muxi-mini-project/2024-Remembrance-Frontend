@@ -1,7 +1,6 @@
-// import React from 'react'
 import { View } from "@tarojs/components"
-// import { useContext } from "react"
 import Taro from "@tarojs/taro"
+import './Header.css'
 
 export default function Header({title, navigationUrl,secondTitle}) {
     // const {CurrentUserContent}=prop
@@ -26,8 +25,8 @@ export default function Header({title, navigationUrl,secondTitle}) {
                 </View>
                 <View className='second-title'>
                     <View className='return' onClick={handleClickBack}></View>
-                    <View className='title-content' id='second-title-content'>{secondTitle}</View>
-                    <View className='chat-friends' onClick={handleClickNext}></View>
+                    <View className='second-title-content' >{secondTitle}</View>
+                    <View className='next-page' onClick={handleClickNext}></View>
                 </View>
             </View>
         </>

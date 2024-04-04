@@ -19,7 +19,7 @@ export default function Register() {
             <Input CurrentUserContent={CurrentUserContent} gettype='register'></Input>
             <View className='submit-back'>
             <Submit CurrentUserContent={CurrentUserContent} gettype='register' GoalPosition='Register2/Register2'></Submit>
-            <Footnote></Footnote>
+            <Footnote className='footnote'></Footnote>
             </View>
           </CurrentUserContent.Provider>
         </View>

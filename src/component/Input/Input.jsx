@@ -1,10 +1,10 @@
 import { useContext, useState } from 'react'
-import { View, Input} from "@tarojs/components";
+import { View, Input } from "@tarojs/components";
 import { Services } from '../../serves/Services';
 import './Input.css'
 
 export default function Imput(prop) {
-    const { CurrentUserContent,gettype } = prop
+    const { CurrentUserContent, gettype } = prop
     const { mailbox, setMailbox, identify, setIdentify } = useContext(CurrentUserContent)
     const [newmailbox, setnewMailbox] = useState(mailbox)
     const [newidentify, setNewIdentify] = useState(identify)
@@ -14,8 +14,17 @@ export default function Imput(prop) {
     const handleIdentifyClick = () => {
         console.log("send identify")
         // 获取验证码
-        const data = Services({ url: '/api/get_code', method: 'GET', data: { "email": mailbox, "code":identify,"gettype":gettype } })
-        console.log(data);
+         Services(
+            {
+                url: '/api/get_code',
+                method: 'POST',
+                data: { "email": newmailbox, "gettype": gettype }
+            }
+        ).then(function (response) {
+            console.log("identify is", response.data.message)
+        }).catch(function (error) {
+            console.log("request fail", error)
+        })
     }
 
     const handleInput1 = (event) => {
