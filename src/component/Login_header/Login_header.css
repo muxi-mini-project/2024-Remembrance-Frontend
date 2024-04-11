@@ -1,13 +1,12 @@
-.header {
+.header--header {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
-.logo {
+.logo--logo {
     position: relative;
-    right: 7%;
     height: 300px;
     width: 100%;
     background-color: #b78a8a;
@@ -17,11 +16,10 @@
     background-position-y: 70%;
 }
 
-.header-title {
+.header--title {
     /* memory */
     position: absolute;
-    top: 60%;
-    right: 10%;
+    top: 20%;
     width: 100%;
     height: 80px;
     font-size: 60px;

@@ -2,23 +2,20 @@ import { View } from "@tarojs/components"
 import Taro from "@tarojs/taro"
 import './Header.css'
 
-export default function Header({title, navigationUrl,secondTitle}) {
-    // const {CurrentUserContent}=prop
-    // const {item}=useContext(CurrentUserContent)
+export default function Header({ListFunctions,title,secondTitle}) {
+  
     const handleClickBack=()=>{
         Taro.navigateBack({
             delta:1
         })
     }
     const handleClickNext=()=>{
-        Taro.navigateTo({
-            url:`../../pages${navigationUrl}?key=${secondTitle}`
-        })
+        ListFunctions.handleClickMore()
     }
     return (
         <>
-            <View className='header'>
-                <View className='title'>
+            <View className='header-header'>
+                <View className='title-title'>
                     <View className='title-logo'></View>
                     <View className='title-content'>{title}</View>
                     <View className='none'></View>

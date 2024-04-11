@@ -1,6 +1,7 @@
 // import React from 'react'
 import { View } from "@tarojs/components"
 import { useContext } from "react"
+import { key } from "../../../utils/keyGene"
 
 export default function ChatList(prop) {
    const {CurrentUserContent}=prop
@@ -10,7 +11,7 @@ export default function ChatList(prop) {
         <View className='chatlist-background'>
             {
                 OnMessagelist && OnMessagelist.map((item) =>
-                    <View className='onmessagelist' key={item.id}>
+                    <View className='onmessagelist' key={key.next().value}>
                         <View className='username'>{item.username}</View>
                         <View className='chatContent1'>{item.content}</View>
                     </View>

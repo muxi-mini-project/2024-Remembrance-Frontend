@@ -12,6 +12,7 @@ export default function Log_in() {
   const [mailbox, setMailbox] = useState("")
   const [password, setPassword] = useState("")
   const [userId,setUserId]=useState("")
+  const [agreeCondition,setAgreeCondition]=useState(false)
  
   const CurrentUserContent = React.createContext()
  
@@ -19,11 +20,11 @@ export default function Log_in() {
     <View className='background'>
       <View className='log-in'>
         <Header></Header>
-        <CurrentUserContent.Provider value={{ setUserId:setUserId,userId:userId,mailbox:mailbox, setMailbox:setMailbox, password:password, setPassword:setPassword }}>
+        <CurrentUserContent.Provider value={{ agreeCondition:agreeCondition,setUserId:setUserId,userId:userId,mailbox:mailbox, setMailbox:setMailbox, password:password, setPassword:setPassword,agreeCondition:agreeCondition}}>
           <Input CurrentUserContent={CurrentUserContent}></Input>
           <View className='submit-back'>
           <Submit CurrentUserContent={CurrentUserContent}></Submit>
-          <Footnote></Footnote>
+          <Footnote agreeCondition={agreeCondition} setAgreeCondition={setAgreeCondition}></Footnote>
           </View>
         </CurrentUserContent.Provider>
       </View>

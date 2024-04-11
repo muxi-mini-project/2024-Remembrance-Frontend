@@ -1,5 +1,6 @@
 import { View , Text , Image} from '@tarojs/components'
 import React, { useEffect } from 'react'
+import Taro from '@tarojs/taro'
 import './Common.css'
 import ToolMemory from './ToolMemory'
 import ShowBubble from './ShowBubble'

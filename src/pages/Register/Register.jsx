@@ -9,17 +9,18 @@ import './Register.css'
 export default function Register() {
   const [mailbox, setMailbox] = useState("")
   const [identify, setIdentify] = useState("")
+  const [agreeCondition,setAgreeCondition]=useState(false)
   const CurrentUserContent = React.createContext()
   return (
     <>
       <View className='background'>
         <View className='Register'>
           <Header></Header>
-          <CurrentUserContent.Provider value={{ mailbox: mailbox, setMailbox: setMailbox, identify: identify, setIdentify: setIdentify }}>
+          <CurrentUserContent.Provider value={{agreeCondition:agreeCondition, mailbox: mailbox, setMailbox: setMailbox, identify: identify, setIdentify: setIdentify }}>
             <Input CurrentUserContent={CurrentUserContent} gettype='register'></Input>
             <View className='submit-back'>
             <Submit CurrentUserContent={CurrentUserContent} gettype='register' GoalPosition='Register2/Register2'></Submit>
-            <Footnote className='footnote'></Footnote>
+            <Footnote className='footnote'agreeCondition={agreeCondition} setAgreeCondition={setAgreeCondition}></Footnote>
             </View>
           </CurrentUserContent.Provider>
         </View>

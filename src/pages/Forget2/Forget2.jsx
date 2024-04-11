@@ -11,7 +11,7 @@ export default function Register() {
   const [password, setPassword] = useState("")
   const [secondPassword, setSecondPassword] = useState("")
   const [CurrentMail, setCurrentMail] = useState('')
-  const [view, setview] = useState(false)
+  // const [view, setview] = useState(false)
   const CurrentUserContent = React.createContext()
 
   // 传过来的-当前用户的邮箱
@@ -30,7 +30,7 @@ export default function Register() {
       <View className='background'>
         <View className='Register'>
           <Header></Header>
-          <CurrentUserContent.Provider value={{ CurrentMail: CurrentMail, password:password, secondPassword, setPassword, setSecondPassword, view, setview }}>
+          <CurrentUserContent.Provider value={{ CurrentMail: CurrentMail, password:password, secondPassword, setPassword, setSecondPassword }}>
             <Input CurrentUserContent={CurrentUserContent}></Input>
             <Submit CurrentUserContent={CurrentUserContent}></Submit>
           </CurrentUserContent.Provider>

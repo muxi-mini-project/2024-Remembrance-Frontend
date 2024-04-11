@@ -4,7 +4,10 @@ import { useCallback } from "react";
 import './Footnote.css'
 
 
-export default function Submit() {
+export default function Submit(prop) {
+
+    const { agreeCondition, setAgreeCondition } = prop
+    console.log(agreeCondition);
 
     const handleClick = useCallback(() => {
         Taro.navigateTo({
@@ -12,10 +15,14 @@ export default function Submit() {
         })
     }, [])
 
+    const handleAgree = () => {
+        setAgreeCondition(!agreeCondition)
+    }
+
     return (
         <>
             <View className='submit-bottom'>
-                <View className='checkbox'></View>
+                <View className='checkbox' onClick={handleAgree} style={{'backgroundColor':agreeCondition?'#73abe4':'transparent'}}></View>
                 <View className='submit-bottom-2'>
                     <View className='submit-foot2'>我已阅读并同意
                         <View className='submit-foot3' onClick={handleClick}>《隐私政策》</View>

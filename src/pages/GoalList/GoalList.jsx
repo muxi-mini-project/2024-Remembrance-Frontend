@@ -25,22 +25,19 @@ export default function GoalList() {
     const [photoList, setPhotoList] = useState([])
     const [inputContent, setInputContent] = useState('')
     const [secondTitle, setSecondTitle] = useState('')
-    const [currentGroupid,setCurrentGroupid]=useState('')
-    // const [FilePaths, setFilePaths] = useState([])
+    const [currentGroupId,setCurrentGroupId]=useState('')
 
 
 
     useEffect(() => {
 
-        // Taro.setStorageSync("Domian","mini-project.muxixyz.com")
-
         // 传群聊名称信息
         const pages = Taro.getCurrentPages();
         const currentPage = pages[pages.length - 1];
-        const { key,groupid } = currentPage.options;
-        setCurrentGroupid(groupid)
+        const { key,groupID } = currentPage.options;
+        setCurrentGroupId(groupID)
         setSecondTitle(key)
-        console.log('Received data:', key);
+        console.log('Received data:', key,groupID);
 
         // websoket 接口
         Taro.connectSocket({
@@ -52,9 +49,10 @@ export default function GoalList() {
             task.onOpen(function () {
                 // 建立连接
                 console.log('onOpen')
-                task.send({ data: chatlist.Content })
+                // task.send({ data: chatlist.Content })
             })
             task.onMessage(function (msg) {
+
                 // 对面发来的
                 addmessagelist(msg)
                 console.log('onMessage: ', msg)
@@ -70,7 +68,7 @@ export default function GoalList() {
 
         // 获得图片token
         Services({
-            url: `/api/photo/gettoken?user=${Taro.setStorage.userId}`,
+            url: `/api/photo/gettoken?user=${Taro.setStorageSync('userid')}`,
             method: "GET"
         }).then(response => {
             console.log(response.data);
@@ -93,16 +91,11 @@ export default function GoalList() {
         // })
     }, []);
 
-
-  
-   
-
     const CurrentUserContent = React.createContext()
 
     const addTextlist = (text) => {
         const newchatlist = {
             username: Taro.getStorageSync('userid'),
-            id: Math.random() * 1000000,
             content: text,
         }
         setChatList([...chatlist, newchatlist])
@@ -110,8 +103,7 @@ export default function GoalList() {
 
     const addPhotolist = (string) => {
         const newphotolist = {
-            username: Taro.getStorageSync.userId,
-            id: Math.random() * 1000000,
+            username: Taro.getStorageSync('userid'),
             photo: string,
         }
         setPhotoList([...photoList, newphotolist])
@@ -120,7 +112,6 @@ export default function GoalList() {
     const addmessagelist = (text) => {
         const newmessagelist = {
             username: "昵称",
-            id: Math.random() * 1000000,
             content: text,
         }
         setOnMessagelist([...onMessagelist, newmessagelist])
@@ -140,7 +131,7 @@ export default function GoalList() {
                 url: '/api/photo/group/post',
                 method: 'PUT',
                 data: {
-                    "groupid": Number(currentGroupid),
+                    "groupid": Number(currentGroupId),
                     "text": event.target.value,
                     "userid": Number(Taro.getStorageSync('userid'))
                 }
@@ -157,6 +148,12 @@ export default function GoalList() {
                     addPhotolist('http://'+'mini-project.muxixyz.com/'+JSON.parse(res.data).key)
                 })
             })
+        },
+        // 跳转页面到 群成员设置
+        handleClickMore:()=>{
+            Taro.navigateTo({
+            url:`../../pages/ChatFriends/ChatFriends?key=${secondTitle}&groupID=${currentGroupId}`
+        })
         }
     }
 
@@ -164,7 +161,7 @@ export default function GoalList() {
         <>
             <View>
                 <CurrentUserContent.Provider value={{ onMessagelist, photoList: photoList, chatlist: chatlist, inputContent: inputContent, ListFunctions: ListFunctions }}>
-                    <Header CurrentUserContent={CurrentUserContent} title='多人记忆' navigationUrl='/ChatFriends/ChatFriends' secondTitle={secondTitle} ></Header>
+                    <Header CurrentUserContent={CurrentUserContent} title='多人记忆' ListFunctions={ListFunctions} secondTitle={secondTitle}></Header>
                     <Content CurrentUserContent={CurrentUserContent}></Content>
                 </CurrentUserContent.Provider>
             </View>

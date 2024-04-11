@@ -10,10 +10,9 @@ import { Services } from '../../serves/Services';
 export default function ChatFriends() {
   const [cancle, setCancle] = useState(false)
   const [Disband, setDisband] = useState(false)
-  const [CurrentGroupid, setCurrentGroupid] = useState("")
-  const [Idcontext, setIdcontext] = useState('')
-  const [CurrentPosition, SetCurrentPosition] = useState('')
-
+  const [CurrentGroupId, setCurrentGroupId] = useState("")      // 当前群聊ID，解散群聊时用
+  const [Idcontext, setIdcontext] = useState('')                // 被删除的人的渲染key值
+  const [CurrentPosition, SetCurrentPosition] = useState('')    // 当前群名
   const [namelist, setNameList] = useState([{
     name: "昵称",
     id: Math.random() * 1000000
@@ -26,14 +25,14 @@ export default function ChatFriends() {
     id: Math.random() * 1000000
   }])
 
-  // 传过来的-当前群聊的地点名
+  // 传过来的-当前群聊的地点名和群聊ID
   useEffect(() => {
     const pages = Taro.getCurrentPages();
     const currentPage = pages[pages.length - 1];
-    const { key, groupid } = currentPage.options;
+    const { key, groupId } = currentPage.options;
     SetCurrentPosition(key)
-    setCurrentGroupid(groupid)
-    console.log('Received data:', key, groupid);
+    setCurrentGroupId(groupId)
+    console.log('Received data:', key, groupId);
   }, []);
 
   const CurrentUserContent = React.createContext()
@@ -49,10 +48,19 @@ export default function ChatFriends() {
         {
           url: '/api/user/group/out',
           method: 'POST',
-          data: { "groupname": CurrentPosition, "userId": Taro.setStorageSync('userid') }
+          data: { "groupname": CurrentPosition, "userid": Taro.setStorageSync('userid') }
         }
-      ).catch(function (error) {
+      ).then(function (response) {
+        Taro.showToast({
+          title: response.data.message,
+          icon: 'none'
+        })
+      }).catch(function (error) {
         console.log("requset fail", error)
+        Taro.showToast({
+          title: error,
+          icon: 'none'
+        })
       })
 
     },
@@ -68,12 +76,21 @@ export default function ChatFriends() {
         {
           url: '/api/user/group/delete',
           method: 'POST',
-          data: { "groupid": CurrentGroupid }
+          data: { "groupid": CurrentGroupId }
         }
-      ).catch(function (error) {
+      ).then(function (res) {
+        Taro.showToast({
+          title: res.data.message,
+          icon: 'none'
+        })
+      }).catch(function (error) {
         console.log("request fail", error)
+        Taro.showToast({
+          title: error,
+          icon: 'none'
+        })
       })
-     
+
       var newnamelist = []
       setNameList(newnamelist)
       setDisband(false)
