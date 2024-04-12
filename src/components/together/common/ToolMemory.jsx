@@ -31,6 +31,7 @@ export default function ToolMemory() {
 
   const toPublish = ()=>{
     console.log("发布共同记忆");
+    Taro.setStorageSync("pubPlace",1);
     Taro.navigateTo({
       url:`/pages/publish/index`,
     })

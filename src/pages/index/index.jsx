@@ -39,9 +39,6 @@ export default function Index() {
 
   useEffect(() => {
     console.log(userid);
-    if (!userid) {
-      Taro.setStorageSync("userid", 2);
-    }
     getInfo();
     getTopic();
   }, [userid]);

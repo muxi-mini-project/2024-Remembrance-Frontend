@@ -11,6 +11,7 @@ export default function Search() {
   const [findPlace, setFindPlace] = useState('');
   const [searchList, setSearchList] = useState([]);
   const [expanded,setExpanded] = useState(false);
+  const [searching, setSearching] = useState(false);
 
   const getHistory = () => {
     Services({
@@ -20,14 +21,24 @@ export default function Search() {
         "userid":userid
       }
     }).then(response => {
-      console.log("搜索历史",response);
-      setSearchList(response.data);
+      console.log("搜索历史", response);
+      // 使用 Map 数据结构保存搜索历史
+      const historyMap = new Map();
+  
+      // 将搜索历史中相同的字符串只保留最新的一次记录
+      response.data.forEach(item => {
+        historyMap.set(item.text, item);
+      });
+  
+      // 将 Map 中的值转换为数组并更新搜索列表
+      setSearchList(Array.from(historyMap.values()));
     }).catch(error => {
       console.log(error);
-    })
+    });
   };
 
   const getPlace = (place) => {
+    console.log("搜索地点");
     return new Promise((resolve, reject) => {
       Services({
         url: `/api/photo/common/photo/get`,
@@ -38,6 +49,7 @@ export default function Search() {
         }
       }).then(res => {
         console.log("地点", res);
+        setSearching(true);
         resolve(res); // 将获取的数据传递给 Promise 的 resolve 函数
       }).catch(err => {
         console.log(err);
@@ -49,30 +61,28 @@ export default function Search() {
 
   useEffect(() => {
     getHistory();
-    console.log('Page loaded.')
   }, [])
 
-  const [isexpend, setIsexpend] = useState(true);
-
   const searchPlace = (evt) => {
-    console.log(evt.target.value);
-    setFindPlace(evt.target.value)
+    setFindPlace(evt.target.value);
   }
 
   const changeSearch = async (place) => {
-    if (place !== '') {
-      console.log("搜索地点",place);
+    if (!searching && place !== '') {
+      // 设置搜索状态为 true，避免重复搜索
+      console.log("搜索地点", place);
       const memoryItem = await getPlace(place); // 等待异步操作完成
       console.log(memoryItem);
-      const newmemory = {...memoryItem,location:place}
+      const newmemory = { ...memoryItem, location: place }
       // 检查 memoryItem 是否为空或未定义，如果不为空则执行后续操作
       if (memoryItem) {
         Taro.navigateTo({
           url: `/pages/bubble/index?memoryItem=${encodeURIComponent(JSON.stringify(newmemory))}`
         })
       }
-      setFindPlace('');
+      // 搜索完成后将搜索状态重置为 false
     }
+
   }
 
   const changeEor = () => {
@@ -86,7 +96,23 @@ export default function Search() {
 
   Taro.useDidShow(() => {
     getHistory();
+    setSearching(false);
   });
+
+  const clearHistory = ()=>{
+    Services({
+      url: `/api/photo/common/comment/deletesearch`,
+      method: "POST",
+      data: {
+        "userid": userid
+      }
+    }).then(res => {
+      console.log("清空", res);
+      getHistory();
+    }).catch(err => {
+      console.log(err);
+    });
+  };
 
  return (
     <>
@@ -107,11 +133,11 @@ export default function Search() {
             <View onClick={()=>changeEor()} className={expanded?'expend':'recover'}>
                 {!expanded ? '展开' : '收回'}
             </View>
-            <Image className='searchrubbish' src='https://img2.imgtp.com/2024/03/27/a8Z7LxKx.png'></Image>
+            <Image onClick={()=>clearHistory()} className='searchrubbish' src='https://img2.imgtp.com/2024/03/27/a8Z7LxKx.png'></Image>
         </View>
         <View className='zhixian'></View>
         <View className='placedisplay'>
-            {searchList.slice(0, expanded ? searchList.length : 6).map((item, index) => (
+            {searchList.slice(0, expanded ? 12 : 6).map((item, index) => (
                 <View key={index} onClick={() => changeSearch(item.text)}>
                   <Text>{item.text}</Text>
                 </View>

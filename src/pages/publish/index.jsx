@@ -2,13 +2,14 @@ import { View, Image, Input } from '@tarojs/components'
 import Taro, { useLoad, useRouter } from '@tarojs/taro'
 import './index.css'
 import { Services } from '../../components/service/Services'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import PublishFeel from '../../components/PublishFeel'
 import Header from '../../components/Header'
 
 export default function Publish() {
 
   const userid = Taro.getStorageSync("userid");
+  const placeCover = Taro.getStorageSync("pubPlace");
 
   const initialPlace = '输入地名';
   const initialPath = 'https://img2.imgtp.com/2024/03/27/rxyFfVbf.png';
@@ -17,9 +18,12 @@ export default function Publish() {
   const [feeling,setFeeling] = useState(initialFeeling);
   const [filePaths, setFilePaths] = useState([initialPath]);
 
-  useLoad(() => {
-    console.log('Page loaded.')
-  })
+  useEffect(()=>{
+    if(placeCover)
+    {
+      setPlace(placeCover)
+    }
+  },[placeCover])
 
   const publishCommon = () => {
     console.log("发布记忆");
@@ -83,7 +87,11 @@ const returnHome = ()=>{
         <Image className='blue' src='https://img2.imgtp.com/2024/03/27/bq1JGE76.png'></Image>
         <Image className='green' src='https://img2.imgtp.com/2024/03/27/GctM5fk3.png'></Image>
         <View className='card'>
-            <Input className='place' value={place} onFocus={()=>clearPlace()} onBlur={()=>returnPlace()} onInput={(event)=>inputPlace(event)}></Input>
+            {
+              placeCover === 1 ?
+              <Input className='place' value={place} onFocus={()=>clearPlace()} onBlur={()=>returnPlace()} onInput={(event)=>inputPlace(event)}></Input>
+              : <View className='place'>{placeCover}</View>
+            }
            <PublishFeel feeling={feeling} setFeeling={setFeeling} initialFeeling={initialFeeling} filePaths={filePaths} setFilePaths={setFilePaths}/>
         </View>
     </View>

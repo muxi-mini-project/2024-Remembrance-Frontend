@@ -110,18 +110,18 @@
 }
 
 .zu71{
-    width: 11.5vh;
-    height: 11.5vh;
+    width: 10vh;
+    height: 10vh;
     position: fixed;
     left: 42%;
-    top: 40vh;
+    top: 38vh;
 }
 
 .memory1{
     width: 28vh;
     height: 28vh;
     position: fixed;
-    left: -10%;
+    left: -4vh;
     top:38vh;
 }
 
@@ -165,7 +165,7 @@
     width: 18vh;
     height: 18vh;
     position: fixed;
-    left: 30%;
+    left: 33%;
     top: 57vh;
 }
 
@@ -187,9 +187,9 @@
 }
 
 .memory2 Text{
-    font-size: 2vh;
+    font-size: 1.8vh;
     position: relative;
-    left: 15%;
+    left: 10%;
     top:-8.2vh;
 }
 
@@ -223,13 +223,13 @@
 .memory3 Text{
     position: relative;
     left: 20%;
-    top: -20.5vh;
+    top: -18vh;
 }
 
 .memory4{
     position: fixed;
     top: 65vh;
-    left: -25%;
+    left: -10vh;
     width: 35vh;
     height: 35vh;
 }
@@ -254,6 +254,6 @@
 
 .memory4 Text{
     position: relative;
-    top:-22vh;
+    top:-20vh;
     left: 40%;
 }

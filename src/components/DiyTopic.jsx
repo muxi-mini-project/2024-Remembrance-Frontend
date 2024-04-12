@@ -85,7 +85,9 @@ export default function DiyTopic(props) {
     <View className={diynumber===1?'notShow':'addTopic'}>
        <View className='shut' onClick={()=>shutBox()}>+</View>
         <View className='topicText'>请输入自定专题</View>
-        <Input value={text} onInput={(event)=>handleTopic(event)}></Input>
+        <View className='input'>
+          <Input value={text} onInput={(event)=>handleTopic(event)}></Input>
+        </View>
         <View className='setTopic' onClick={()=>addTopic()}>ok</View>
     </View>
     </>

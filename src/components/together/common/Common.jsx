@@ -3,6 +3,7 @@ import React, { useEffect } from 'react'
 import './Common.css'
 import ToolMemory from './ToolMemory'
 import ShowBubble from './ShowBubble'
+import Taro from '@tarojs/taro'
 
 export default function Common() {
 

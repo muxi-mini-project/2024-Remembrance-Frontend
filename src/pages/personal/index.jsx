@@ -1,5 +1,5 @@
 import { Image, View, Text, Input } from '@tarojs/components'
-import Taro, { useRouter } from '@tarojs/taro'
+import Taro from '@tarojs/taro'
 import React, { useEffect, useRef, useState } from 'react'
 import './index.css'
 import { Services } from '../../components/service/Services'
