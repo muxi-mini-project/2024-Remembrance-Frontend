@@ -84,6 +84,10 @@ export default function Personal() {
   
     const logout = () => {
       console.log("退出登录");
+      Taro.removeStorageSync("userid");
+      Taro.navigateTo({
+        url: `/pages/Log_in/Log_in`
+      })
     }
   
     return (
