@@ -37,12 +37,13 @@
     top: 5vh;
 }
 
-.addTopic Input{
+.input Input{
     position: relative;
     left:3vw;
     top: 6vh;
-    width: 60vw;
+    width: 85%;
     border-radius: 1.5vh;
+    font-size: 2vh;
     height: 5vh;
     line-height: 5vh;
     border: 1px solid rgba(0, 0, 0, 0.301);
