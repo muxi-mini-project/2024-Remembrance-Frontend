@@ -33,6 +33,25 @@ export default function ChatFriends() {
     SetCurrentPosition(key)
     setCurrentGroupId(groupId)
     console.log('Received data:', key, groupId);
+
+
+    // 获取群内人员昵称
+    // Services(
+    //   {
+    //     url: '',
+    //     method: '',
+    //     data: {}
+    //   }
+    // ).then(function (response) {
+    //   console.log("request state is", response.data.message)
+    // }).catch(function (error) {
+    //   console.log("requset fail", error)
+    //   Taro.showToast({
+    //     title: '出错啦，请重试',
+    //     icon: 'none'
+    //   })
+    // })
+
   }, []);
 
   const CurrentUserContent = React.createContext()
@@ -48,17 +67,18 @@ export default function ChatFriends() {
         {
           url: '/api/user/group/out',
           method: 'POST',
-          data: { "groupname": CurrentPosition, "userid": Taro.setStorageSync('userid') }
+          data: { "groupname": CurrentPosition, "userid": Number(Taro.setStorageSync('userid')) }
         }
       ).then(function (response) {
+        console.log("request state is", response.data.message)
         Taro.showToast({
-          title: response.data.message,
+          title: '操作成功',
           icon: 'none'
         })
       }).catch(function (error) {
         console.log("requset fail", error)
         Taro.showToast({
-          title: error,
+          title: '出错啦，请重试',
           icon: 'none'
         })
       })
@@ -76,27 +96,29 @@ export default function ChatFriends() {
         {
           url: '/api/user/group/delete',
           method: 'POST',
-          data: { "groupid": CurrentGroupId }
+          data: { "groupid": Number(CurrentGroupId) }
         }
       ).then(function (res) {
+        if (res.data.code == 200) {
+          Taro.navigateBack({
+            delta: 2
+          })
+        }
         Taro.showToast({
-          title: res.data.message,
+          title: '操作成功',
           icon: 'none'
         })
       }).catch(function (error) {
         console.log("request fail", error)
         Taro.showToast({
-          title: error,
+          title: '出错啦，请重试',
           icon: 'none'
         })
       })
 
-      var newnamelist = []
-      setNameList(newnamelist)
+      // var newnamelist = []
+      // setNameList(newnamelist)
       setDisband(false)
-      Taro.navigateBack({
-        delta: 2
-      })
     }
   }
   const dellist = (Id) => {

@@ -16,12 +16,12 @@ export default function CreateMultiple() {
         handleClickButton: () => {
 
             setClick(!click)
-            // 加入群聊 验证groupcode？
+            // 加入群聊 验证groupcode？  
             Services(
                 {
                     url: '/api/user/group/join',
                     method: 'POST',
-                    data: { 'groupcode': enteredDigits, 'groupname': name, 'userid': Taro.getStorageSync('userid') }
+                    data: { 'groupcode': enteredDigits, 'groupname': name, 'userid': Number(Taro.getStorageSync('userid'))}
                 }
             ).then(function (res) {
                 console.log("request state is", res.data.message)

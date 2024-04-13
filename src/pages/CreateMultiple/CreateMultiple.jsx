@@ -33,7 +33,7 @@ export default function CreateMultiple() {
                 {
                     url: '/api/user/group/creat',
                     method: 'PUT',
-                    data: { "groupname": name, "userid": 8 }
+                    data: { "groupname": name, "userid": Number(Taro.getStorageSync('userid')) }
                 }
             ).then(function (res) {
                 console.log("request state is", res.data.message)

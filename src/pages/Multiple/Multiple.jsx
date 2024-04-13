@@ -11,7 +11,6 @@ import { Services } from '../../serves/Services';
 export default function Multiple() {
 
     const [more,setMore] = useState(false)
-    // const [groupid, setGroupid] = useState("")
     const [list, setList] = useState([{
         peoplenum: '3',
         Name: '武昌',
@@ -32,7 +31,7 @@ export default function Multiple() {
             {
                 url: '/api/user/group/get',
                 method: 'POST',
-                data: { "userid": 8 }
+                data: { "userid": 19 }
             }
         ).then(function (response) {
             setList(response.data.group.map((item) => ({ ...item, CreatedAt: item.CreatedAt.split('.')[0].replace('T', ' ') })))
@@ -52,22 +51,6 @@ export default function Multiple() {
            setMore(!more)
         },
     }
-
-    // 返回删除的信息 
-    // const dellist = (Id) => {
-
-    //     var newlist = list.filter(item => item.id != Id)
-    //     setList(newlist)
-    // }
-
-
-    // const addlist = () => {
-    //     var newlist = {
-    //         Name: '',
-    //         CreatedAt: '',
-    //     }
-    //     setList({ ...list, newlist })
-    // }
 
     const CurrentUserContent = React.createContext()
     return (
