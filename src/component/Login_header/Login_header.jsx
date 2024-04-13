@@ -4,9 +4,9 @@ import "./Login_header.css"
 export default function Heater() {
     return (
         <>
-            <View className='header'>
-                <View className='logo'></View>
-                <Text className='header-title'></Text>
+            <View className='header--header'>
+                <View className='logo--logo'></View>
+                <Text className='header--title'></Text>
             </View>
         </>
     )

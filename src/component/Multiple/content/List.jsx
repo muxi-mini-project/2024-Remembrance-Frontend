@@ -7,12 +7,13 @@ import { key } from "../../../utils/keyGene"
 
 export default function List(prop) {
    const {CurrentUserContent}=prop
-   const {groupid,list}=useContext(CurrentUserContent)
+   const {list}=useContext(CurrentUserContent)
 
     const handleClick = (item) => {
         Taro.navigateTo({
-            url: `../../pages/GoalList/GoalList?key=${item.Name}&groupid=${groupid}`
+            url: `../../pages/GoalList/GoalList?key=${item.Name}&groupID=${item.ID}`
         })
+        console.log(item.ID)
     }
 
     return (

@@ -3,12 +3,11 @@ import { View } from "@tarojs/components";
 
 export default function RenderList(prop) {
   const { CurrentUserContent } = prop
-  const { setNameContext,setCancle, setDisband, namelist,setIdcontext } = useContext(CurrentUserContent)
+  const { setCancle, setDisband, namelist,setIdcontext } = useContext(CurrentUserContent)
   const handleCancle = (item) => {
     setCancle(true)
     console.log(item.id)
     console.log(item.name)
-    setNameContext(item.name)
     setIdcontext(item.id)
   }
   const handleDisband = () => {

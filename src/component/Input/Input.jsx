@@ -1,7 +1,9 @@
 import { useContext, useState } from 'react'
+import Taro from '@tarojs/taro';
 import { View, Input } from "@tarojs/components";
 import { Services } from '../../serves/Services';
 import './Input.css'
+
 
 export default function Imput(prop) {
     const { CurrentUserContent, gettype } = prop
@@ -13,8 +15,8 @@ export default function Imput(prop) {
 
     const handleIdentifyClick = () => {
         console.log("send identify")
-        // 获取验证码
-         Services(
+        // 获取验证码  差一个账号格式错误时的返回状态码
+        Services(
             {
                 url: '/api/get_code',
                 method: 'POST',
@@ -22,35 +24,53 @@ export default function Imput(prop) {
             }
         ).then(function (response) {
             console.log("identify is", response.data.message)
+            if (response.data.code == 200) {
+                Taro.showToast({
+                    title: '验证码已发送,请注意查收',
+                    icon: 'none'
+                })
+            }
+            if (response.data.code == 400) {
+                Taro.showToast({
+                    title: '账号出错啦',
+                    icon: 'none'
+                })
+            }
         }).catch(function (error) {
             console.log("request fail", error)
+            Taro.showToast({
+                title: "请重试",
+                icon: 'error'
+            })
         })
     }
 
-    const handleInput1 = (event) => {
+    const handleInputMailbox = (event) => {
         setnewMailbox(event.target.value)
+
     }
 
-    const handleConfirm1 = (event) => {
+    const handleBlurMailbox = (event) => {
         setMailbox(event.target.value)
-        console.log(event.target.value)
+        // console.log(event.target.value)
     }
 
-    const handleInput2 = (event) => {
+    const handleInputPassword = (event) => {
         setNewIdentify(event.target.value)
     }
 
-    const handleConfirm2 = (event) => {
+    const handleBlurTdentify = (event) => {
+        // console.log(event.target.value)
+
         setIdentify(event.target.value)
-        console.log(event.target.value)
     }
 
     return (
         <>
             <View className='input-back'>
                 <View className='input-top'>
-                    <Input type='text' value={newmailbox} placeholder='请输入邮箱' className='input' onInput={handleInput1} onConfirm={handleConfirm1}></Input>
-                    <Input type='text' value={newidentify} placeholder='请输入验证码' className='input' onInput={handleInput2} onConfirm={handleConfirm2}></Input>
+                    <Input type='text' value={newmailbox} placeholder='请输入邮箱' className='input' onInput={handleInputMailbox} onBlur={handleBlurMailbox}></Input>
+                    <Input type='text' value={newidentify} placeholder='请输入验证码' className='input' onInput={handleInputPassword} onBlur={handleBlurTdentify}></Input>
                     <View className='input-button' onClick={handleIdentifyClick}>获取验证码</View>
                 </View>
             </View>

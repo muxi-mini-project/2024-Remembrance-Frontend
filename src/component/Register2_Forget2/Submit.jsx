@@ -6,13 +6,10 @@ import { Services } from '../../serves/Services';
 
 export default function Submit(prop) {
     const { CurrentUserContent } = prop
-    const { CurrentMail, password, secondPassward, view } = useContext(CurrentUserContent)
-
+    const { CurrentMail, password, secondPassword } = useContext(CurrentUserContent)
+    const status = password && password === secondPassword
     const handleClick = useCallback(() => {
-        Taro.navigateTo({
-            url: '../../pages/Log_in/Log_in'
-        })
-
+       
         // 更改密码 
         Services(
             {
@@ -22,10 +19,24 @@ export default function Submit(prop) {
             }
         ).then(function (response) {
             console.log("change state is", response.data.message)
+            if(response.data.code==200){
+                Taro.navigateTo({
+                    url: '../../pages/Log_in/Log_in'
+                })
+            }
+            if(response.data.code==400){
+                Taro.showToast({
+                    title: '更改失败',
+                    icon: 'none'
+                })
+            }
         }).catch(function (error) {
             console.log("request fail", error)
+            Taro.showToast({
+                title: '出错啦，请重试',
+                icon: 'error'
+            })
         })
-
 
     }, [])
 
@@ -40,8 +51,8 @@ export default function Submit(prop) {
         <>
             <View className='submit-back'>
                 <View className='submit-top'>
-                    <Button className='button' style={{ backgroundColor: password == secondPassward && view ? '#2383E0' : 'transparent' }} onClick={handleClick}>完成</Button>
-                    <View className='submit-foot1' style={{ display: password == secondPassward && view ? 'none' : 'blod' }} onClick={handleBackClick}>返回上一步</View>
+                    <Button className='button' style={{ backgroundColor: status ? '#2383E0' : 'transparent' }} onClick={handleClick}>完成</Button>
+                    <View className='submit-foot1' style={{ display: status ? 'none' : 'block' }} onClick={handleBackClick}>返回上一步</View>
                 </View>
             </View>
         </>

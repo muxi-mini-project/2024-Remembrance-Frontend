@@ -8,69 +8,53 @@ import "./GoalList.css"
 import { takePhoto, uploadFile } from '../../UploadQiniu/UploadQiniu';
 
 
-export default function GoalList() {
 
-    // 自己发出去的信息
-    const [chatlist, setChatList] = useState([{
-        username: "昵称",
-        id: Math.random() * 1000000,
-        content: "111"
-    }])
-    // 对面发来的信息
-    const [onMessagelist, setOnMessagelist] = useState([{
-        username: "昵称",
-        id: Math.random() * 1000000,
-        content: "111"
-    }])
-    const [photoList, setPhotoList] = useState([])
+
+export default function GoalList() {
     const [inputContent, setInputContent] = useState('')
     const [secondTitle, setSecondTitle] = useState('')
-    const [currentGroupid,setCurrentGroupid]=useState('')
-    // const [FilePaths, setFilePaths] = useState([])
+    const [currentGroupId, setCurrentGroupId] = useState('')
+    const [groupRecord, setGroupRecord] = useState([
+        {
+            userid: "",
+            text: '',
+            cloudurl: ''
+        }
+    ])
 
 
+    const Getgrouprecord = () => {
+        // 拉下聊天记录
+        Services({
+            url: `/api/photo/group/get`,
+            method: "POST",
+            data: { 'groupid': Number(currentGroupId) }
+        }).then(function (response) {
+            setGroupRecord(response.data.data.map((item) => ({ ...item })))
+            console.log('request state is', response.data.message)
+        }).catch(error => {
+            console.log("service fail", error)
+        })
+        console.log(groupRecord)
+
+    }
+    console.log(groupRecord)
 
     useEffect(() => {
-
-        // Taro.setStorageSync("Domian","mini-project.muxixyz.com")
 
         // 传群聊名称信息
         const pages = Taro.getCurrentPages();
         const currentPage = pages[pages.length - 1];
-        const { key,groupid } = currentPage.options;
-        setCurrentGroupid(groupid)
+        const { key, groupID } = currentPage.options;
+        setCurrentGroupId(groupID)
         setSecondTitle(key)
-        console.log('Received data:', key);
+        console.log('Received data:', key, groupID);
 
-        // websoket 接口
-        Taro.connectSocket({
-            url: 'ws://8.138.81.141:8088/api/user/group/line',
-            success: function () {
-                console.log('connect success')
-            }
-        }).then(task => {
-            task.onOpen(function () {
-                // 建立连接
-                console.log('onOpen')
-                task.send({ data: chatlist.Content })
-            })
-            task.onMessage(function (msg) {
-                // 对面发来的
-                addmessagelist(msg)
-                console.log('onMessage: ', msg)
-                task.close()
-            })
-            task.onError(function (error) {
-                console.log('onError', error)
-            })
-            task.onClose(function (e) {
-                console.log('onClose: ', e)
-            })
-        })
+
 
         // 获得图片token
         Services({
-            url: `/api/photo/gettoken?user=${Taro.setStorage.userId}`,
+            url: `/api/photo/gettoken?user=${19}`,
             method: "GET"
         }).then(response => {
             console.log(response.data);
@@ -79,52 +63,26 @@ export default function GoalList() {
             console.log("service fail", error)
         })
 
-        // 获取聊天记录 接口还没好 好像不打算写了？
+        // 获取聊天记录
         // Services({
-        //     url: ``,
-        //     method: "",
-        //     data: { "userid": Taro.getStorage.userId, "position": key }
-        // }).then(function () {
-        //     chatlist.username = photoList.username = "",
-        //         chatlist.text = "",
-        //         photoList.photo = ""
+        //     url: `/api/photo/group/get`,
+        //     method: "POST",
+        //     data: { 'groupid': Number(currentGroupId) }
+        // }).then(function (response) {
+        //     setGroupRecord(response.data.data.map((item) => ({ ...item })))
+        //     console.log('request state is', response.data.message)
         // }).catch(error => {
         //     console.log("service fail", error)
         // })
+
+        // setInterval(() => {
+        //     Getgrouprecord()
+        // }, 1000)
+
     }, []);
-
-
-  
-   
 
     const CurrentUserContent = React.createContext()
 
-    const addTextlist = (text) => {
-        const newchatlist = {
-            username: Taro.getStorageSync('userid'),
-            id: Math.random() * 1000000,
-            content: text,
-        }
-        setChatList([...chatlist, newchatlist])
-    }
-
-    const addPhotolist = (string) => {
-        const newphotolist = {
-            username: Taro.getStorageSync.userId,
-            id: Math.random() * 1000000,
-            photo: string,
-        }
-        setPhotoList([...photoList, newphotolist])
-    }
-
-    const addmessagelist = (text) => {
-        const newmessagelist = {
-            username: "昵称",
-            id: Math.random() * 1000000,
-            content: text,
-        }
-        setOnMessagelist([...onMessagelist, newmessagelist])
-    }
 
     const ListFunctions = {
 
@@ -134,19 +92,21 @@ export default function GoalList() {
         },
         handleConfirm: (event) => {
             setInputContent("")
-            addTextlist(event.target.value)
+            // addTextlist(event.target.value)
 
             Services({
                 url: '/api/photo/group/post',
                 method: 'PUT',
                 data: {
-                    "groupid": Number(currentGroupid),
+                    "groupid": Number(currentGroupId),
                     "text": event.target.value,
-                    "userid": Number(Taro.getStorageSync('userid'))
+                    // "userid": Number(Taro.getStorageSync('userid'))
+                    'userid': 19,
+                    'cloudurl': ''
                 }
-            })
+            }).then(Getgrouprecord)
             console.log("send", event.target.value)
-
+            // console.log(groupRecord)
         },
 
         // 发图片 
@@ -154,20 +114,40 @@ export default function GoalList() {
             takePhoto().then((file) => {
                 uploadFile(file).then((res) => {
                     console.log(res.data);
-                    addPhotolist('http://'+'mini-project.muxixyz.com/'+JSON.parse(res.data).key)
+                    Services({
+                        url: '/api/photo/group/post',
+                        method: 'PUT',
+                        data: {
+                            'cloudurl': 'http://' + 'mini-project.muxixyz.com/' + JSON.parse(res.data).key,
+                            "groupid": Number(currentGroupId),
+                            //    "userid": Number(Taro.getStorageSync('userid'))
+                            "userid": 19,
+                            'text': ''
+                        }
+                    }).then(Getgrouprecord)
                 })
             })
-        }
+        },
+        // 跳转页面到 群成员设置
+        handleClickMore: () => {
+            Taro.navigateTo({
+                url: `../../pages/ChatFriends/ChatFriends?key=${secondTitle}&groupID=${currentGroupId}`
+            })
+        },
+
     }
 
     return (
         <>
             <View>
-                <CurrentUserContent.Provider value={{ onMessagelist, photoList: photoList, chatlist: chatlist, inputContent: inputContent, ListFunctions: ListFunctions }}>
-                    <Header CurrentUserContent={CurrentUserContent} title='多人记忆' navigationUrl='/ChatFriends/ChatFriends' secondTitle={secondTitle} ></Header>
+                <CurrentUserContent.Provider value={{ groupRecord: groupRecord, inputContent: inputContent, ListFunctions: ListFunctions }}>
+                    <Header CurrentUserContent={CurrentUserContent} title='多人记忆' ListFunctions={ListFunctions} secondTitle={secondTitle}></Header>
                     <Content CurrentUserContent={CurrentUserContent}></Content>
                 </CurrentUserContent.Provider>
             </View>
         </>
     )
 }
+
+
+

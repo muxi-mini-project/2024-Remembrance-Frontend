@@ -1,4 +1,4 @@
-.header {
+.header-header {
     width: 100vw;
     position: relative;
     top: 2vh;
@@ -7,7 +7,7 @@
     /* padding: 1vh; */
 }
 
-.title {
+.title-title {
     height: 10vh;
     background-color: #f8f8f8;
     display: flex;
@@ -31,8 +31,6 @@
     height: 40px;
     position: relative;
     top: 60%;
-    /* bottom: 40%; */
-    /* left: 37%; */
 }
 
 .second-title {
@@ -48,7 +46,7 @@
     line-height: 5vh;
     width: 30vw;
     position: absolute;
-    left: 36vw;
-    top: 11vh;
+    left: 50vw;
+    transform: translateX(-50%);
     text-align: center;
 }
