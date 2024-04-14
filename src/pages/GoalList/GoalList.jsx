@@ -23,22 +23,20 @@ export default function GoalList() {
     ])
 
 
-    const Getgrouprecord = () => {
+    const Getgrouprecord = (groupID) => {
         // 拉下聊天记录
         Services({
             url: `/api/photo/group/get`,
             method: "POST",
-            data: { 'groupid': Number(currentGroupId) }
+            data: { 'groupid': Number(groupID) }
         }).then(function (response) {
-            setGroupRecord(response.data.data.map((item) => ({ ...item })))
+            setGroupRecord(response.data.data)
             console.log('request state is', response.data.message)
         }).catch(error => {
             console.log("service fail", error)
         })
-        console.log(groupRecord)
 
     }
-    console.log(groupRecord)
 
     useEffect(() => {
 
@@ -62,23 +60,13 @@ export default function GoalList() {
         }).catch(error => {
             console.log("service fail", error)
         })
-
-        // 获取聊天记录
-        // Services({
-        //     url: `/api/photo/group/get`,
-        //     method: "POST",
-        //     data: { 'groupid': Number(currentGroupId) }
-        // }).then(function (response) {
-        //     setGroupRecord(response.data.data.map((item) => ({ ...item })))
-        //     console.log('request state is', response.data.message)
-        // }).catch(error => {
-        //     console.log("service fail", error)
-        // })
-
-        // setInterval(() => {
-        //     Getgrouprecord()
-        // }, 1000)
-
+        Getgrouprecord(groupID)
+        let timer = setInterval(() => {
+            Getgrouprecord(groupID)
+        }, 6000)
+        return () => {
+            clearInterval(timer)
+        }
     }, []);
 
     const CurrentUserContent = React.createContext()
@@ -92,21 +80,17 @@ export default function GoalList() {
         },
         handleConfirm: (event) => {
             setInputContent("")
-            // addTextlist(event.target.value)
-
             Services({
                 url: '/api/photo/group/post',
                 method: 'PUT',
                 data: {
                     "groupid": Number(currentGroupId),
                     "text": event.target.value,
-                    // "userid": Number(Taro.getStorageSync('userid'))
-                    'userid': 19,
+                    'userid': Number(Taro.getStorageSync('userid')),
                     'cloudurl': ''
                 }
-            }).then(Getgrouprecord)
+            }).then(() => Getgrouprecord(currentGroupId))
             console.log("send", event.target.value)
-            // console.log(groupRecord)
         },
 
         // 发图片 
@@ -120,11 +104,21 @@ export default function GoalList() {
                         data: {
                             'cloudurl': 'http://' + 'mini-project.muxixyz.com/' + JSON.parse(res.data).key,
                             "groupid": Number(currentGroupId),
-                            //    "userid": Number(Taro.getStorageSync('userid'))
-                            "userid": 19,
+                            "userid": Number(Taro.getStorageSync('userid')),
                             'text': ''
                         }
-                    }).then(Getgrouprecord)
+                    }).then(function(response) {
+                        Getgrouprecord(currentGroupId)
+                        if (response.data.message==400){
+                            Taro.showToast({
+                                title:'出错啦，请重试',
+                                icon:'none'
+                            
+                            })
+                        }
+                    }
+
+                    )
                 })
             })
         },
@@ -141,7 +135,7 @@ export default function GoalList() {
         <>
             <View>
                 <CurrentUserContent.Provider value={{ groupRecord: groupRecord, inputContent: inputContent, ListFunctions: ListFunctions }}>
-                    <Header CurrentUserContent={CurrentUserContent} title='多人记忆' ListFunctions={ListFunctions} secondTitle={secondTitle}></Header>
+                    <Header CurrentUserContent={CurrentUserContent} backUrl='/pages/Multiple/Multiple' title='多人记忆' ListFunctions={ListFunctions} secondTitle={secondTitle}></Header>
                     <Content CurrentUserContent={CurrentUserContent}></Content>
                 </CurrentUserContent.Provider>
             </View>

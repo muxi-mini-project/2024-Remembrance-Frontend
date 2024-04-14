@@ -20,7 +20,7 @@ export default function Log_in() {
     <View className='background'>
       <View className='log-in'>
         <Header></Header>
-        <CurrentUserContent.Provider value={{ agreeCondition:agreeCondition,setUserId:setUserId,userId:userId,mailbox:mailbox, setMailbox:setMailbox, password:password, setPassword:setPassword,agreeCondition:agreeCondition}}>
+        <CurrentUserContent.Provider value={{ agreeCondition:agreeCondition,setUserId:setUserId,userId:userId,mailbox:mailbox, setMailbox:setMailbox, password:password, setPassword:setPassword}}>
           <Input CurrentUserContent={CurrentUserContent}></Input>
           <View className='submit-back'>
           <Submit CurrentUserContent={CurrentUserContent}></Submit>

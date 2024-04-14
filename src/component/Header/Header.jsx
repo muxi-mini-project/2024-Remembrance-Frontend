@@ -2,11 +2,11 @@ import { View } from "@tarojs/components"
 import Taro from "@tarojs/taro"
 import './Header.css'
 
-export default function Header({ListFunctions,title,secondTitle}) {
+export default function Header({ListFunctions,title,secondTitle, backUrl='/pages/index/index'}) {
   
     const handleClickBack=()=>{
-        Taro.navigateBack({
-            delta:1
+        Taro.redirectTo({
+            url: backUrl
         })
     }
     const handleClickNext=()=>{
