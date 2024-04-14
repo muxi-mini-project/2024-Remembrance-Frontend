@@ -40,7 +40,7 @@ export default function Imput(prop) {
             console.log("request fail", error)
             Taro.showToast({
                 title: "请重试",
-                icon: 'error'
+                icon: 'none'
             })
         })
     }
