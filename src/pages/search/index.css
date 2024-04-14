@@ -36,6 +36,7 @@
     height: 4vh;
     width: 50%;
     overflow: hidden;
+    font-size: 2vh;
 }
 
 .searchbox Text{

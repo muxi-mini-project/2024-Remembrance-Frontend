@@ -6,6 +6,7 @@ import Taro from '@tarojs/taro'
 import { Services } from '../../components/service/Services'
 import Header from '../../components/Header'
 import { AddDate } from '../../components/service/AddDate'
+import { AddName } from '../../components/service/AddName'
 
 export default function Qipao() {
 
@@ -18,7 +19,6 @@ export default function Qipao() {
   const { memoryItem } = router.params;
   const qipaoItem = JSON.parse(decodeURIComponent(memoryItem));
 
- console.log("qipao",qipaoItem);
   const getComment = (index)=>{
     Services({
         url:`/api/photo/common/comment/get`,
@@ -26,32 +26,16 @@ export default function Qipao() {
         data:{
             "photoid":index
         }
-    }).then(resp=>{
-        console.log("评论",resp);
+    }).then(async (resp)=>{
         if (resp.data) {
-          const updatedData = AddDate(resp);
-          console.log(updatedData);
+          const newData = AddDate(resp);
+          const updatedData = await AddName(newData)
+          console.log("用户评论",updatedData);
           setCommentList(updatedData);
     }}).catch(error=>{
         console.log(error);
     })
     }
-
-    // const getUser = (index)=>{
-    //     Services({
-    //         url: `/api/user/getinfo`,
-    //         method: "POST",
-    //         data:{
-    //             "id":index
-    //         }
-    //     }).then(res=>{
-    //         console.log("信息",res);
-    //         return res.data.username;
-    //     }).catch(err=>{
-    //         console.log(err);
-    //         return err;
-    //     })
-    // }
 
     useEffect(() => {
         if (image.ID) {
@@ -65,18 +49,26 @@ export default function Qipao() {
             method: "POST",
             data: {
                 "location": qipaoItem.location,
-                "userid": userid
+                "userid": 0
             }
-        }).then(response => {
-            const newElements = AddDate(response);
-            const randomIndex = Math.floor(Math.random() * newElements.length);
-            const randomElement = response.data[randomIndex];
-            getComment(randomElement.ID)
-            setImage(randomElement);
+        }).then(async (response) => {
+            if (response.data) {
+                const updatedElements = AddDate(response);
+                const newElements = await AddName(updatedElements);
+                const randomIndex = Math.floor(Math.random() * newElements.length);
+                const randomElement = newElements[randomIndex];
+                console.log("随机",randomElement);
+                getComment(randomElement.ID);
+                setImage(randomElement);
+            }
         }).catch(error => {
             console.log(error);
         });
     }
+
+    Taro.useDidShow(() => {
+        getPhoto();
+    });
 
     useEffect(()=>{
         getPhoto();
@@ -90,13 +82,13 @@ export default function Qipao() {
 
   const publishMemory = () =>{
     console.log("发布记忆");
+    Taro.setStorageSync("pubPlace",qipaoItem.location)
     Taro.navigateTo({
       url: '/pages/publish/index'
     })
   }
 
   const handleChangetext = (evt)=>{
-      console.log("评论",evt.target.value);
       setText(evt.target.value);
   }
 
@@ -118,7 +110,6 @@ export default function Qipao() {
 };
 
 const sendComment = (evt) => {
-    console.log("发布评论", text);
     if (text !== '') { // 检查 text 是否为空
         putComment(text);
     }
@@ -126,9 +117,10 @@ const sendComment = (evt) => {
 };
 
 
+
   return (
     <>
-    <Header></Header>
+      <Header></Header>
       <View className='memoryNavbar'>
             <Image className='juxing61' src='https://img2.imgtp.com/2024/03/27/Y1T1VrRz.png'></Image>
             <Image onClick={()=>backCommon()} className='zu120' src='https://img2.imgtp.com/2024/03/27/Q1bxNZyD.png'></Image>

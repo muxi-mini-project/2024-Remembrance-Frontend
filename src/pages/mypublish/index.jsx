@@ -26,7 +26,7 @@ export default function Mypublish() {
           "cloudurl": url,
           "personalalbumname":name,
           "text": feeling,
-          "userid": userid
+          "userid": userid,
         }
     }).then(response => {
         console.log(name);

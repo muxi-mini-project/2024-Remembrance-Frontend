@@ -4,6 +4,7 @@ import Taro from '@tarojs/taro'
 import './Common.css'
 import ToolMemory from './ToolMemory'
 import ShowBubble from './ShowBubble'
+import Taro from '@tarojs/taro'
 
 export default function Common() {
 

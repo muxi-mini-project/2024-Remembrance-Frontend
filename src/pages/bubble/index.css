@@ -83,53 +83,63 @@
     margin: 0 10%;
 }
 
-/* .myusername{
+.myusername{
     font-family: 'Times New Roman', Times, serif;
     letter-spacing: 1vw;
     font-size: 2.3vh;
     opacity: 0.9;
     height: 3vh;
-} */
+    font-weight: bold;
+}
 
 .myuserdate{
     position: relative;
     opacity: 0.5;
     height: 1.5vh;
+    font-size: 2vh;
+    top: -1vh;
 }
 
 .textShow{
-    top:1vh;
     width: 80vw;
-    height: 10vh;
+    height: 8vh;
     position: relative;
     background: rgba(228, 228, 228, 0.62);
     border: 1px solid rgba(0, 0, 0, 0.313);
-    padding: 5px 10px;
+    font-size: 2vh;
+    border-radius: 0.5vh;
+}
+
+.textShow View{
+    margin: 3px 5px;
 }
 
 .lujing187{
     height: 1px;
+    width: 92vw;
     position: relative;
     left: 50%;
     transform: translateX(-55%);
+    top: -1vh;
 }
 
 .photoShow {
-    width: 30vh; /* 设置为与高度相同的数值 */
+    width: 80vw; /* 设置为与高度相同的数值 */
     height: 30vh; /* 设置为相同的数值，以使其展示为正方形 */
     position: relative;
     background: rgba(228, 228, 228, 0.62);
     display: flex; /* 使用 flex 布局 */
     align-items: center; /* 垂直居中 */
     justify-content: center; /* 水平居中 */
-    left: 10%;
-    top: -1vh;
+    top: -2.5vh;
+    border-radius: 0.5vh;
 }
 
 .photoShow Image {
     width: 100%; /* 图片宽度占满父容器 */
     height: 100%; /* 图片高度占满父容器 */
     object-fit: contain; /* 图片保持原比例，并完全适合父容器 */
+    border-radius: 0.5vh;
 }
 
 
@@ -138,12 +148,12 @@
     width: 92vw;
     position: relative;
     left: -5%;
-    top: -2vh;
+    top: -5.5vh;
 }
 
 .comment{
     position: relative;
-    top: -2vh;
+    top: -4vh;
 }
 
 .pinglun{
@@ -152,25 +162,27 @@
     width: 10vh;
     text-align: center;
     letter-spacing: 0.5vw;
-    left: 35%;
+    left: 37%;
     border-bottom: 1px solid black;
     opacity: 0.8;
     font-size: 3vh;
     color: #000;
+    top: -2vh;
 }
 
 .commentShow{
     border: 1px solid rgba(0, 0, 0, 0.324);
     position: relative;
-    top: 1vh;
     height: 20vh;
     width: 80vw;
-    padding: 0.4vh;
+    /* padding: 0.4vh; */
     overflow: scroll;
+    top: -1.5vh;
+    border-radius: 0.5vh;
 }
 
 .showcomment{
-    padding: 0.1vh 0.1vh 0.1vh 0.1vh;
+    padding: 5px;
     border-bottom: 1px solid rgba(44, 43, 43, 0.349);
 }
 
@@ -178,11 +190,13 @@
     font-size: 2vh;
     letter-spacing: 0.5vw;
     color: #151414cb;
+    position: relative;
+    top: -5px;
 }
 
 .commentDate{
     position: relative;
-    left: 75%;
+    left: 80%;
     font-size: 1.8vh;
     color: #0e0d0d6c;
 }
@@ -197,7 +211,7 @@
     background: rgba(245, 245, 245, 1);
     width: 88vw;
     height: 5vh;
-    top: 2vh;
+    top: 0.5vh;
     left: -3.5%;
     border-radius: 1.5vh;
     padding: auto 2vw;
